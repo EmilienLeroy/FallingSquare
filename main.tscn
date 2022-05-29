@@ -5,8 +5,14 @@
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Item2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 190, 65 )
+
 [node name="Area2D" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, 657 )
 
 [node name="Item" parent="." instance=ExtResource( 1 )]
-position = Vector2( 190, 65 )
+position = Vector2( 88, 98 )
+rotation = -0.507891
+scale = Vector2( 0.5, 0.5 )
+gravity = 100
