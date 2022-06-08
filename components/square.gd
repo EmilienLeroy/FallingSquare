@@ -17,5 +17,8 @@ func enter_zone():
 	update_color(Color8(0, 117, 255));
 
 func _on_exit_screen():
+	if (touch_under_zone):
+		return;
+
 	emit_signal("loose_life");
 	pass;

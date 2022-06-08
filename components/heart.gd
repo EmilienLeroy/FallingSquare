@@ -6,7 +6,7 @@ var alive_color = Color8(255, 0, 0);
 var dead_color = Color8(0, 0, 0);
 
 func set_alive(a):
-	var color =  alive_color if alive else dead_color;
+	var color =  alive_color if a else dead_color;
 	update_color(color);
 	alive = a;
 	
@@ -14,7 +14,7 @@ func get_alive():
 	return alive;
 
 func _ready():
-	update_color(Color8(255, 0, 0))
+	update_color(alive_color);
 	pass
 
 func update_color(color):

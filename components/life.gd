@@ -5,10 +5,18 @@ var Heart = preload("res://components/heart.tscn");
 export var hearts = 3;
 
 func _ready():
-	for heart in hearts:
-		$Hearts.add_child(create_heart(heart))
-		
+	update_hearts(hearts);
 	pass
+	
+func update_hearts(new_hearts):
+	hearts = new_hearts;
+	
+	for n in $Hearts.get_children():
+		$Hearts.remove_child(n)
+		n.queue_free()
+	
+	for heart in hearts:
+		$Hearts.add_child(create_heart(heart))	
 
 func create_heart(id):
 	var heart = Heart.instance();
@@ -25,7 +33,7 @@ func enable_heart(id):
 
 func disable_heart(id):
 	var heart = $Hearts.get_node('heart_' + String(id));
-	
+
 	if (!heart):
 		return;
 		
@@ -37,8 +45,8 @@ func add_heart():
 
 func remove_heart():
 	hearts = hearts - 1;
-	
-	if (hearts <= 0):
+
+	if (hearts < 0):
 		return;
 	
 	disable_heart(hearts);
