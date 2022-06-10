@@ -14,7 +14,7 @@ margin_right = 359.0
 margin_bottom = 46.0
 
 [node name="Zone" parent="." instance=ExtResource( 2 )]
-position = Vector2( 3, 655 )
+position = Vector2( 0, 529 )
 
 [node name="Spawn" type="Position2D" parent="."]
 position = Vector2( 183, 130 )

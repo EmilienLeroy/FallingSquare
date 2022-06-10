@@ -1,14 +1,28 @@
 extends Node2D
 
-var Game = preload("res://components/game.tscn");
+var HomeView = preload("res://views/home.tscn");
+var GameView = preload("res://components/game.tscn");
+
+var current;
 
 func _ready():
-	create_game();
+	current = create_home();
 	pass
 
+
+func create_home():
+	var home = HomeView.instance();
+	add_child(home);
+	home.connect("play", self, 'on_play')
+	return home;
 
 func create_game():
-	var game = Game.instance(); 
+	var game = GameView.instance(); 
 	add_child(game);
 	game.start_game(3);
-	pass
+	
+	return game;
+	
+func on_play():
+	current.queue_free();
+	current = create_game();
