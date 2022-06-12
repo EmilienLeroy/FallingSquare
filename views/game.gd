@@ -4,6 +4,7 @@ signal lose;
 var Square = preload("res://components/square.tscn");
 var timer = Timer.new();
 var lifes;
+var score = 0;
 
 func _ready():
 	timer.set_wait_time(1.0);
@@ -30,6 +31,7 @@ func create_item():
 	square.scale = Vector2(scale, scale);
 	square.set_speed_rotation(rotation);
 	square.connect("loose_life", self, "on_life_loose");
+	square.connect("touched_under_zone", self, "on_item_touched")
 	
 	add_child(square);
 
@@ -43,6 +45,11 @@ func update_spawn_position():
 	var positionY = 0;
 	
 	$Spawn.position = Vector2(positionX, positionY);
+
+
+func on_item_touched():
+	score = score + 1;
+	$Score.score = score;
 
 func on_life_loose():
 	lifes = lifes - 1;

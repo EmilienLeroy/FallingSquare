@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+signal touched_under_zone;
 onready var sprite = $Sprite;
 
 export var gravity = 400;
@@ -21,6 +22,7 @@ func _physics_process(delta):
 func _on_input_event(viewport, event, shape_idx):
 	if (event is InputEventScreenTouch and event.pressed and is_under_zone):
 		touch_under_zone = true;
+		emit_signal("touched_under_zone");
 		item_touched();
 
 func update_color(color):
