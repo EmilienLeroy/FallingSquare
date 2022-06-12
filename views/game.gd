@@ -56,6 +56,7 @@ func on_life_loose():
 	$Front/Life.remove_heart();
 	
 	if (lifes == 0):
+		yield(get_tree().create_timer(0.3), "timeout")
 		emit_signal("lose", score);
 	
 	

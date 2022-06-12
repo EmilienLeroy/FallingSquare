@@ -36,9 +36,15 @@ func create_lose(score):
 	return lose;
 
 func update_current_view(view):
+	$Fade.fade_in();
+	yield($Fade/Animation, "animation_finished");
+	
 	current.queue_free();
 	add_child(view);
 	current = view;
+	
+	$Fade.fade_out();
+	yield($Fade/Animation, "animation_finished");
 
 func on_home():
 	update_current_view(create_home());
