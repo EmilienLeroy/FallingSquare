@@ -17,7 +17,7 @@ func _ready():
 
 func set_life(life):
 	lifes = life;
-	$Life.update_hearts(life);
+	$Front/Life.update_hearts(life);
 
 func create_item():
 	var scale = rand_range(0.5, 1.2);
@@ -53,7 +53,7 @@ func on_item_touched():
 
 func on_life_loose():
 	lifes = lifes - 1;
-	$Life.remove_heart();
+	$Front/Life.remove_heart();
 	
 	if (lifes == 0):
 		emit_signal("lose");

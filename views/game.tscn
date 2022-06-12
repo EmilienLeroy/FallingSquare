@@ -8,10 +8,12 @@
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Life" parent="." instance=ExtResource( 1 )]
-margin_left = 227.0
+[node name="Front" type="CanvasLayer" parent="."]
+
+[node name="Life" parent="Front" instance=ExtResource( 1 )]
+margin_left = -133.0
 margin_top = 4.0
-margin_right = 359.0
+margin_right = -1.0
 margin_bottom = 46.0
 
 [node name="Zone" parent="." instance=ExtResource( 2 )]
