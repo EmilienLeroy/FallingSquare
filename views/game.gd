@@ -56,6 +56,6 @@ func on_life_loose():
 	$Front/Life.remove_heart();
 	
 	if (lifes == 0):
-		emit_signal("lose");
+		emit_signal("lose", score);
 	
 	
