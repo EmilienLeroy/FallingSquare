@@ -1,7 +1,7 @@
 extends Node2D
 
 var HomeView = preload("res://views/home.tscn");
-var GameView = preload("res://components/game.tscn");
+var GameView = preload("res://views/game.tscn");
 var LoseView = preload("res://views/lose.tscn");
 
 var current;
