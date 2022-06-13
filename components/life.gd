@@ -40,8 +40,8 @@ func disable_heart(id):
 	heart.alive = false;
 	
 func add_heart():
-	hearts = hearts + 1;
 	enable_heart(hearts);
+	hearts = hearts + 1;
 
 func remove_heart():
 	hearts = hearts - 1;

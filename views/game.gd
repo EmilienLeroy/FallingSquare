@@ -3,9 +3,11 @@ extends Node2D
 signal lose;
 var Square = preload("res://components/square.tscn");
 var Bomb = preload("res://components/bomb.tscn");
-var items = [Square, Bomb];
+var Restore = preload("res://components/restore.tscn");
+var items = [Square, Bomb, Restore];
 var timer = Timer.new();
 var lifes;
+var max_lifes;
 var score = 0;
 
 func _ready():
@@ -19,6 +21,7 @@ func _ready():
 
 func set_life(life):
 	lifes = life;
+	max_lifes = life;
 	$Front/Life.update_hearts(life);
 
 func create_item():
@@ -32,6 +35,7 @@ func create_item():
 	item.position = $Spawn.position;
 	item.scale = Vector2(scale, scale);
 	item.set_speed_rotation(rotation);
+	item.connect("add_life", self, "on_life_added");
 	item.connect("loose_life", self, "on_life_loose");
 	item.connect("touched_under_zone", self, "on_item_touched")
 	
@@ -52,6 +56,15 @@ func update_spawn_position():
 func on_item_touched():
 	score = score + 1;
 	$Score.score = score;
+	
+func on_life_added():
+	print(max_lifes)
+	print(lifes)
+	if (max_lifes <= lifes):
+		return
+	
+	lifes = lifes + 1;
+	$Front/Life.add_heart();
 
 func on_life_loose():
 	lifes = lifes - 1;
