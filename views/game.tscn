@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://components/life.tscn" type="PackedScene" id=1]
 [ext_resource path="res://components/zone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://views/game.gd" type="Script" id=3]
 [ext_resource path="res://components/score.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 55.5, 400 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -23,3 +26,13 @@ position = Vector2( 0, 529 )
 position = Vector2( 183, 130 )
 
 [node name="Score" parent="." instance=ExtResource( 4 )]
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="WallLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2( -56, 400 )
+shape = SubResource( 1 )
+
+[node name="WallRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 416, 401 )
+shape = SubResource( 1 )
