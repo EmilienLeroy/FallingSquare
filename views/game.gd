@@ -2,6 +2,8 @@ extends Node2D
 
 signal lose;
 var Square = preload("res://components/square.tscn");
+var Bomb = preload("res://components/bomb.tscn");
+var items = [Square, Bomb];
 var timer = Timer.new();
 var lifes;
 var score = 0;
@@ -22,18 +24,18 @@ func set_life(life):
 func create_item():
 	var scale = rand_range(0.5, 1.2);
 	var rotation = rand_range(-5, 5);
-	var square = Square.instance();
+	var item = items[randi() % items.size()].instance();
 	
 	update_spawn_time();
 	update_spawn_position();
 	
-	square.position = $Spawn.position;
-	square.scale = Vector2(scale, scale);
-	square.set_speed_rotation(rotation);
-	square.connect("loose_life", self, "on_life_loose");
-	square.connect("touched_under_zone", self, "on_item_touched")
+	item.position = $Spawn.position;
+	item.scale = Vector2(scale, scale);
+	item.set_speed_rotation(rotation);
+	item.connect("loose_life", self, "on_life_loose");
+	item.connect("touched_under_zone", self, "on_item_touched")
 	
-	add_child(square);
+	add_child(item);
 
 func update_spawn_time():
 	var time = rand_range(0.5, 1);

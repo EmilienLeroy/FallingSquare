@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://components/item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/shaders/color.gdshader" type="Shader" id=2]
+[ext_resource path="res://assets/icons/bomb.png" type="Texture" id=3]
+[ext_resource path="res://components/bomb.gd" type="Script" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/color = null
+
+[node name="Bomb" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+
+[node name="Sprite" parent="." index="0"]
+material = SubResource( 1 )
+texture = ExtResource( 3 )
