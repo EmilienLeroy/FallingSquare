@@ -9,6 +9,17 @@ var timer = Timer.new();
 var lifes;
 var max_lifes;
 var score = 0;
+var shake_amount = 10;
+var shake = false;
+
+func _process(delta):
+	if (!shake):
+		return;
+
+	$ShakeCamera.set_offset(Vector2(
+		rand_range(-1, 1) * shake_amount,
+		rand_range(-1, 1) * shake_amount
+	))
 
 func _ready():
 	timer.set_wait_time(1.0);
@@ -52,7 +63,6 @@ func update_spawn_position():
 	
 	$Spawn.position = Vector2(positionX, positionY);
 
-
 func on_item_touched():
 	score = score + 1;
 	$Score.score = score;
@@ -69,9 +79,17 @@ func on_life_added():
 func on_life_loose():
 	lifes = lifes - 1;
 	$Front/Life.remove_heart();
+	shake_camera();
 	
 	if (lifes == 0):
 		yield(get_tree().create_timer(0.3), "timeout")
 		emit_signal("lose", score);
 	
+
+func shake_camera():
+	shake = true;
 	
+	yield(get_tree().create_timer(0.3), "timeout");
+	
+	shake = false;
+	$ShakeCamera.set_offset(Vector2(0, 0))
