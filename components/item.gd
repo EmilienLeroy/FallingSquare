@@ -1,9 +1,10 @@
 extends KinematicBody2D
 
 signal touched_under_zone;
-onready var sprite = $Sprite;
 
+onready var sprite = $Sprite;
 export var gravity = 400;
+
 var speed_rotation = 0;
 var velocity = Vector2.ZERO;
 var is_under_zone = false;
@@ -11,6 +12,7 @@ var touch_under_zone = false;
 
 func _ready():
 	connect("input_event", self, "_on_input_event");
+	$Animation.play("fade");
 	
 func _process(delta):
 	rotation += speed_rotation * delta;

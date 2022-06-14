@@ -11,6 +11,8 @@ var max_lifes;
 var score = 0;
 var shake_amount = 10;
 var shake = false;
+var size = 1.2;
+var interval = 2;
 
 func _process(delta):
 	if (!shake):
@@ -22,7 +24,7 @@ func _process(delta):
 	))
 
 func _ready():
-	timer.set_wait_time(1.0);
+	timer.set_wait_time(interval);
 	timer.set_one_shot(false);
 	timer.connect("timeout", self, "create_item");
 	
@@ -36,15 +38,17 @@ func set_life(life):
 	$Front/Life.update_hearts(life);
 
 func create_item():
-	var scale = rand_range(0.5, 1.2);
-	var rotation = rand_range(-5, 5);
+	var rotation = rand_range(-1, 1);
 	var item = items[randi() % items.size()].instance();
+	
+	if (size > 0.2):
+		size = size - 0.01;
 	
 	update_spawn_time();
 	update_spawn_position();
 	
 	item.position = $Spawn.position;
-	item.scale = Vector2(scale, scale);
+	item.scale = Vector2(size, size);
 	item.set_speed_rotation(rotation);
 	item.connect("add_life", self, "on_life_added");
 	item.connect("loose_life", self, "on_life_loose");
@@ -53,9 +57,11 @@ func create_item():
 	add_child(item);
 
 func update_spawn_time():
-	var time = rand_range(0.5, 1);
+	
+	if (interval > 0.7):
+		interval = interval - 0.1;
 
-	timer.set_wait_time(time);
+	timer.set_wait_time(interval);
 
 func update_spawn_position():
 	var positionX = rand_range(30, 300);
