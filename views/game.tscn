@@ -17,10 +17,10 @@ script = ExtResource( 3 )
 [node name="Front" type="CanvasLayer" parent="."]
 
 [node name="Life" parent="Front" instance=ExtResource( 1 )]
-margin_left = -133.0
-margin_top = 4.0
-margin_right = -1.0
-margin_bottom = 46.0
+margin_left = -150.0
+margin_top = 14.0
+margin_right = -18.0
+margin_bottom = 56.0
 
 [node name="Zone" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, 529 )
