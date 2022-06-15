@@ -1,10 +1,11 @@
 extends Node2D
 
 signal lose;
+
 var Square = preload("res://components/square.tscn");
 var Bomb = preload("res://components/bomb.tscn");
 var Restore = preload("res://components/restore.tscn");
-var items = [Square, Bomb, Restore];
+
 var timer = Timer.new();
 var lifes;
 var max_lifes;
@@ -12,7 +13,7 @@ var score = 0;
 var shake_amount = 10;
 var shake = false;
 var size = 1.2;
-var interval = 2;
+var interval = 1.5;
 
 func _process(delta):
 	if (!shake):
@@ -37,9 +38,20 @@ func set_life(life):
 	max_lifes = life;
 	$Front/Life.update_hearts(life);
 
+func get_random_item():
+	var random_float = randf();
+
+	if random_float < 0.8:
+		return Square;
+	
+	if random_float < 0.9:
+		return Bomb;
+
+	return Restore;
+
 func create_item():
 	var rotation = rand_range(-1, 1);
-	var item = items[randi() % items.size()].instance();
+	var item = get_random_item().instance();
 	
 	if (size > 0.2):
 		size = size - 0.01;
