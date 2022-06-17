@@ -3,6 +3,7 @@ extends Node2D
 var HomeView = preload("res://views/home.tscn");
 var GameView = preload("res://views/game.tscn");
 var LoseView = preload("res://views/lose.tscn");
+var AboutView = preload("res://views/about.tscn");
 
 var current;
 
@@ -15,8 +16,16 @@ func create_home():
 	var home = HomeView.instance();
 	
 	home.connect("play", self, 'on_play');
+	home.connect("info", self, 'on_info');
 	
 	return home;
+
+func create_about():
+	var about = AboutView.instance();
+	
+	about.connect("back", self, 'on_home');
+	
+	return about;
 
 func create_game():
 	var game = GameView.instance(); 
@@ -48,6 +57,9 @@ func update_current_view(view):
 
 func on_home():
 	update_current_view(create_home());
+	
+func on_info():
+	update_current_view(create_about());
 
 func on_play():
 	update_current_view(create_game());
