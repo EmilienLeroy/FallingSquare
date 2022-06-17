@@ -38,10 +38,13 @@ jobs:
           cp /root/.config/godot ~/.config -r
           mkdir -v -p dist/
           godot --quiet --export-debug Android dist/FallingSquare-debug.apk >&-
+          godot --quiet --export Android dist/FallingSquare.apk >&-
 
       - name: Upload android apk
         uses: actions/upload-artifact@v2
         with:
           name: release
-          path: dist/FallingSquare-debug.apk
+          path: |
+            dist/FallingSquare.apk
+            dist/FallingSquare-debug.apk
  
