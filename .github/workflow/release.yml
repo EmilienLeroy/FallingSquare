@@ -1,0 +1,47 @@
+
+name: Release
+on: [push]
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:3.4.2
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          lfs: true
+
+      - name: Setup Templates
+        run: |
+          mkdir -v -p ~/.local/share/godot/templates
+          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
+
+      - name: Prepare android release
+        env:
+          ANDROID_KEYSTORE: ${{secrets.ANDROID_RELEASE_KEYSTORE}}
+          ANDROID_KEYSTORE_USER: ${{secrets.ANDROID_RELEASE_KEYSTORE_USER}}
+          ANDROID_KEYSTORE_PW: ${{secrets.ANDROID_RELEASE_KEYSTORE_PW}}
+        if: |
+          env.ANDROID_KEYSTORE &&
+          env.ANDROID_KEYSTORE_USER &&
+          env.ANDROID_KEYSTORE_PW
+        run: |
+          echo $ANDROID_KEYSTORE | base64 --decode > ./release.keystore
+          sed 's@keystore/release=".*"@keystore/release="'./release.keystore'"@g' -i export_presets.cfg
+          sed 's@keystore/release_user=".*"@keystore/release_user="'$ANDROID_KEYSTORE_USER'"@g' -i export_presets.cfg
+          sed 's@keystore/release_password=".*"@keystore/release_password="'$ANDROID_KEYSTORE_PW'"@g' -i export_presets.cfg
+
+      - name: Build
+        run: |
+          mkdir ~/.config
+          cp /root/.config/godot ~/.config -r
+          mkdir -v -p dist/
+          godot --quiet --export-debug Android dist/FallingSquare-debug.apk >&-
+
+      - name: Upload android apk
+        uses: actions/upload-artifact@v2
+        with:
+          name: release
+          path: dist/FallingSquare-debug.apk
+ 
