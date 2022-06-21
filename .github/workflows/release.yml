@@ -19,8 +19,8 @@ jobs:
           cp /root/.config/godot/editor_settings-3.tres ~/.config/godot/editor_settings-3.tres
           mkdir -pv android/build
           mkdir -pv android/plugins
-          echo "${GODOT_VERSION}.${GODOT_RELEASE}" > android/.build_version
-          unzip ~/.local/share/godot/templates/${GODOT_VERSION}.${GODOT_RELEASE}/android_source.zip -d android/build
+          echo "3.4.4.stable" > android/.build_version
+          unzip ~/.local/share/godot/templates/3.4.4.stable/android_source.zip -d android/build
           touch android/build/.gdignore
           chmod +x android/build/gradlew
 
