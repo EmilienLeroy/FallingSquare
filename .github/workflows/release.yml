@@ -6,9 +6,11 @@ jobs:
   build-release:
     runs-on: ubuntu-latest
     container:
-      image: myood/godot-ci-android-export:godot-3.3.3
+      image: barichello/godot-ci:3.4.4
     steps:
       - uses: actions/checkout@v2
+        with:
+          lfs: true
       - name: Setup Templates
         run: |
           mkdir -v -p ~/.local/share/godot/templates
