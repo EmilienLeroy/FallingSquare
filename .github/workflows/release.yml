@@ -14,7 +14,7 @@ jobs:
       - name: Setup Templates
         run: |
           mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates//${GODOT_VERSION}.stable ~/.local/share/godot/templates//${GODOT_VERSION}.stable
+          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
           mkdir -v -p ~/.config/godot/
           cp /root/.config/godot/editor_settings-3.tres ~/.config/godot/editor_settings-3.tres
           mkdir -pv android/build
