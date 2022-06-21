@@ -44,7 +44,6 @@ jobs:
         run: |
           cp /root/.config/godot ~/.config -r
           mkdir -v -p dist/
-          godot --quiet --export-debug Android dist/FallingSquare-debug.apk >&-
           godot --quiet --export Android dist/FallingSquare.aab >&-
 
       - name: Upload android apk
@@ -53,5 +52,4 @@ jobs:
           name: release
           path: |
             dist/FallingSquare.aab
-            dist/FallingSquare-debug.apk
  
