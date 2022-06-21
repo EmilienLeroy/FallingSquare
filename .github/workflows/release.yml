@@ -6,7 +6,7 @@ jobs:
   build-release:
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:3.4.4
+      image: myood/godot-ci-android-export:godot-3.3.3
     steps:
       - uses: actions/checkout@v2
         with:
@@ -15,7 +15,10 @@ jobs:
       - name: Setup Templates
         run: |
           mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/3.4.4.stable ~/.local/share/godot/templates/3.4.4.stable
+          mv /root/.local/share/godot/templates//${GODOT_VERSION}.stable ~/.local/share/godot/templates//${GODOT_VERSION}.stable
+          mkdir -v -p ~/.config/godot/
+          cp /root/.config/godot/editor_settings-3.tres ~/.config/godot/editor_settings-3.tres
+          chmod +x android/build/gradlew
 
       - name: Prepare android release
         env:
@@ -38,13 +41,13 @@ jobs:
           cp /root/.config/godot ~/.config -r
           mkdir -v -p dist/
           godot --quiet --export-debug Android dist/FallingSquare-debug.apk >&-
-          godot --quiet --export Android dist/FallingSquare.apk >&-
+          godot --quiet --export Android dist/FallingSquare.aab >&-
 
       - name: Upload android apk
         uses: actions/upload-artifact@v2
         with:
           name: release
           path: |
-            dist/FallingSquare.apk
+            dist/FallingSquare.aab
             dist/FallingSquare-debug.apk
  
