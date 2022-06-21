@@ -9,9 +9,6 @@ jobs:
       image: myood/godot-ci-android-export:godot-3.3.3
     steps:
       - uses: actions/checkout@v2
-        with:
-          lfs: true
-
       - name: Setup Templates
         run: |
           mkdir -v -p ~/.local/share/godot/templates
