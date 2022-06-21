@@ -40,7 +40,6 @@ jobs:
 
       - name: Build
         run: |
-          mkdir ~/.config
           cp /root/.config/godot ~/.config -r
           mkdir -v -p dist/
           godot --quiet --export-debug Android dist/FallingSquare-debug.apk >&-
