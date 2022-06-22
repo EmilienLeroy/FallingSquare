@@ -42,13 +42,12 @@ jobs:
 
       - name: Build
         run: |
-          mkdir -v -p dist/
-          godot -v --export "Android" ../dist/FallingSquare.aab >&-
+          godot -v --export "Android" FallingSquare.aab
 
       - name: Upload android apk
         uses: actions/upload-artifact@v2
         with:
           name: release
           path: |
-            dist/FallingSquare.aab
+            FallingSquare.aab
  
