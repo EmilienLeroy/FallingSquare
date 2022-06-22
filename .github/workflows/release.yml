@@ -42,7 +42,7 @@ jobs:
 
       - name: Build
         run: |
-          godot -v --export "Android" FallingSquare.aab
+          godot --quiet --export "Android" FallingSquare.aab
 
       - name: Upload android apk
         uses: actions/upload-artifact@v2
