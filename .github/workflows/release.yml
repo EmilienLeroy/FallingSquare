@@ -42,7 +42,6 @@ jobs:
 
       - name: Build
         run: |
-          cp /root/.config/godot ~/.config -r
           mkdir -v -p dist/
           godot --quiet --export Android dist/FallingSquare.aab >&-
 
