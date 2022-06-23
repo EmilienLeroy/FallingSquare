@@ -25,7 +25,7 @@ jobs:
           chmod +x android/build/gradlew
 
 
-      - name: Prepare android release
+      - name: Prepare Android Keystore
         env:
           ANDROID_KEYSTORE: ${{secrets.ANDROID_RELEASE_KEYSTORE}}
           ANDROID_KEYSTORE_USER: ${{secrets.ANDROID_RELEASE_KEYSTORE_USER}}
@@ -40,17 +40,15 @@ jobs:
           sed 's@keystore/release_user=".*"@keystore/release_user="'$ANDROID_KEYSTORE_USER'"@g' -i export_presets.cfg
           sed 's@keystore/release_password=".*"@keystore/release_password="'$ANDROID_KEYSTORE_PW'"@g' -i export_presets.cfg
 
-      - name: Build
+      - name: Build Android App Bundle
         run: |
           mkdir -v -p ./dist
-          godot --quiet --export-debug "Android" ./dist/FallingSquare-debug.apk
           godot --quiet --export "Android" ./dist/FallingSquare.aab
 
-      - name: Upload android apk
+      - name: Upload Android App Bundle
         uses: actions/upload-artifact@v2
         with:
           name: release
           path: |
             dist/FallingSquare.aab
-            dist/FallingSquare-debug.apk
  
