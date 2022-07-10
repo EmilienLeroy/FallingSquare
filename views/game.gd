@@ -86,8 +86,6 @@ func on_item_touched():
 	$Score.score = score;
 	
 func on_life_added():
-	print(max_lifes)
-	print(lifes)
 	if (max_lifes <= lifes):
 		return
 	
