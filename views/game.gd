@@ -76,8 +76,18 @@ func update_spawn_time():
 	timer.set_wait_time(interval);
 
 func update_spawn_position():
-	var positionX = rand_range(30, 300);
+	var minX = 30;
+	var maxX = 300;
+	var minDiff = maxX / 3.5;
+	var positionX = rand_range(minX, maxX);
 	var positionY = 0;
+	
+	# This prevent update of the spawn position
+	# to a position very close of the previous position.
+	# Without this if the item is so big and the spawing time so little
+	# items can be stucks on the top of the screen.
+	while(abs(positionX - $Spawn.position.x) < minDiff):
+		positionX = rand_range(minX, maxX);
 	
 	$Spawn.position = Vector2(positionX, positionY);
 
