@@ -12,10 +12,4 @@ func _on_back_down():
 
 
 func get_version():
-	var config = ConfigFile.new();	
-	var err = config.load("res://version.cfg");
-	
-	if err != OK:
-		return
-		
-	return config.get_value(config.get_sections()[0], "version");
+	return ProjectSettings.get_setting("application/config/version");

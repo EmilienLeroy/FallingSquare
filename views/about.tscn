@@ -37,10 +37,10 @@ script = ExtResource( 2 )
 [node name="License" type="RichTextLabel" parent="."]
 modulate = Color( 0, 0.458824, 1, 1 )
 anchor_right = 0.076
-margin_left = 20.0
-margin_top = 22.0
-margin_right = 340.0
-margin_bottom = 608.0
+margin_left = 30.0
+margin_top = 38.0
+margin_right = 330.0
+margin_bottom = 624.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/mono_font = SubResource( 2 )
 custom_fonts/bold_font = SubResource( 6 )
@@ -63,7 +63,7 @@ THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 
 "
 text = "Falling Square
-This game is developed by Emilien Leroy. It's made 100% with godot. This project is under the MIT license. You can find the source here.
+This game is developed by Emilien Leroy. It's made 100% with godot. This project is under the MIT license. You can find the source here .
 
 Icons 8 
 This project use icons from icons8.com
@@ -87,9 +87,9 @@ margin_bottom = 776.0
 texture_normal = ExtResource( 1 )
 
 [node name="Version" type="Label" parent="."]
-margin_top = 639.0
+margin_top = 646.0
 margin_right = 360.0
-margin_bottom = 671.0
+margin_bottom = 678.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 8 )
 align = 1
