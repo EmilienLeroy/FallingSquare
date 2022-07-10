@@ -10,3 +10,4 @@ export.cfg
 .mono/
 data_*/
 dist/
+android/
