@@ -11,3 +11,5 @@ export.cfg
 data_*/
 dist/
 android/
+!fastlane/metadata/android/
+playstore.key.json
