@@ -74,4 +74,4 @@
         with:
           ruby-version: '3.0'
           bundler-cache: true 
-      - run: fastlane android deploy
+      - run: bundle exec fastlane android deploy
