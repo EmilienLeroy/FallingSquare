@@ -1,0 +1,27 @@
+name: Deploy
+on: [push]
+jobs:
+  deploy-release:
+    needs: build-release
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/download-artifact@v3
+      with:
+        name: release
+        path: dist/FallingSquare.aab
+
+    - name: Prepare Playstore key
+      env:
+        PLAYSTORE_KEY: ${{secrets.PLAYSTORE_KEY}}
+      if: |
+        env.PLAYSTORE_KEY
+      run: |
+        echo $PLAYSTORE_KEY > ./playstore.key.json
+
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.0'
+        bundler-cache: true 
+    - run: fastlane android deploy
