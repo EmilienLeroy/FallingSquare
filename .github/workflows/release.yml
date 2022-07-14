@@ -1,7 +1,9 @@
 
   name: Release
-  on: [push]
-
+  on:
+    create:
+      tags:
+        - v*
   jobs:
     build-release:
       runs-on: ubuntu-latest
