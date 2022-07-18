@@ -1,0 +1,38 @@
+
+  name: IOS
+  on:
+    ['push']
+
+  jobs:
+    build-release:
+      runs-on: macos-latest
+      container:
+        image: barichello/godot-ci:3.4.4
+      steps:
+        - uses: actions/checkout@v2
+          with:
+            lfs: true
+        - name: Setup Templates
+          run: |
+            mkdir -v -p ~/.local/share/godot/templates
+            mv /root/.local/share/godot/templates/3.4.4.stable ~/.local/share/godot/templates/3.4.4.stable
+            mkdir -v -p ~/.config/godot/
+            cp /root/.config/godot/editor_settings-3.tres ~/.config/godot/editor_settings-3.tres
+            mkdir -pv android/build
+            mkdir -pv android/plugins
+            echo "3.4.4.stable" > android/.build_version
+            unzip ~/.local/share/godot/templates/3.4.4.stable/android_source.zip -d android/build
+            touch android/build/.gdignore
+            chmod +x android/build/gradlew
+
+        - name: Build iOS App
+          run: |
+            mkdir -v -p ./dist
+            godot --quiet --export "iOS" ./dist/FallingSquare.ipa
+
+        - name: Upload Android App Bundle
+          uses: actions/upload-artifact@v2
+          with:
+            name: ios
+            path: |
+              dist/FallingSquare.ipa
