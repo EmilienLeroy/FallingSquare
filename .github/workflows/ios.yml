@@ -6,12 +6,13 @@
   jobs:
     build-release:
       runs-on: macos-latest
-      container:
-        image: barichello/godot-ci:3.4.4
       steps:
         - uses: actions/checkout@v2
           with:
             lfs: true
+
+        - name: Install godot
+          run: brew install --cask godot
 
         - name: Build iOS App
           run: |
