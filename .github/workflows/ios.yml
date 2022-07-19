@@ -25,6 +25,10 @@
           run: |
             mkdir -v -p ./dist
             godot --quiet --export "iOS" ./dist/FallingSquare.ipa
+            ls dist/
+            cd ./dist/FallingSquare.xcodeproj
+            xcodebuild -scheme iOS build
+            ls
 
         - name: Upload Android App Bundle
           uses: actions/upload-artifact@v2
