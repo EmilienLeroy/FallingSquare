@@ -17,9 +17,9 @@
         - name: Install template
           run: |
             wget -q https://downloads.tuxfamily.org/godotengine/3.4.4/Godot_v3.4.4-stable_export_templates.tpz
-            mkdir -p /Users/runner/Library/Application Support/Godot/templates/
+            mkdir -p /Users/runner/Library/Application Support/Godot/templates/3.4.4.stable/
             unzip Godot_v3.4.4-stable_export_templates.tpz
-            mv templates/* /Users/runner/Library/Application Support/Godot/templates/
+            mv templates/* /Users/runner/Library/Application Support/Godot/templates/3.4.4.stable/
 
         - name: Build iOS App
           run: |
