@@ -1,54 +1,79 @@
 
-name: Release
-on: [push]
+  name: Release
+  on:
+    create:
+      tags:
+        - v*
+  jobs:
+    build-release:
+      runs-on: ubuntu-latest
+      container:
+        image: barichello/godot-ci:3.4.4
+      steps:
+        - uses: actions/checkout@v2
+          with:
+            lfs: true
+        - name: Setup Templates
+          run: |
+            mkdir -v -p ~/.local/share/godot/templates
+            mv /root/.local/share/godot/templates/3.4.4.stable ~/.local/share/godot/templates/3.4.4.stable
+            mkdir -v -p ~/.config/godot/
+            cp /root/.config/godot/editor_settings-3.tres ~/.config/godot/editor_settings-3.tres
+            mkdir -pv android/build
+            mkdir -pv android/plugins
+            echo "3.4.4.stable" > android/.build_version
+            unzip ~/.local/share/godot/templates/3.4.4.stable/android_source.zip -d android/build
+            touch android/build/.gdignore
+            chmod +x android/build/gradlew
 
-jobs:
-  build-release:
-    runs-on: ubuntu-latest
-    container:
-      image: barichello/godot-ci:3.4.4
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          lfs: true
-      - name: Setup Templates
-        run: |
-          mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/3.4.4.stable ~/.local/share/godot/templates/3.4.4.stable
-          mkdir -v -p ~/.config/godot/
-          cp /root/.config/godot/editor_settings-3.tres ~/.config/godot/editor_settings-3.tres
-          mkdir -pv android/build
-          mkdir -pv android/plugins
-          echo "3.4.4.stable" > android/.build_version
-          unzip ~/.local/share/godot/templates/3.4.4.stable/android_source.zip -d android/build
-          touch android/build/.gdignore
-          chmod +x android/build/gradlew
 
+        - name: Prepare Android Keystore
+          env:
+            ANDROID_KEYSTORE: ${{secrets.ANDROID_RELEASE_KEYSTORE}}
+            ANDROID_KEYSTORE_USER: ${{secrets.ANDROID_RELEASE_KEYSTORE_USER}}
+            ANDROID_KEYSTORE_PW: ${{secrets.ANDROID_RELEASE_KEYSTORE_PW}}
+          if: |
+            env.ANDROID_KEYSTORE &&
+            env.ANDROID_KEYSTORE_USER &&
+            env.ANDROID_KEYSTORE_PW
+          run: |
+            echo $ANDROID_KEYSTORE | base64 --decode > ./production.keystore
+            sed 's@keystore/release=".*"@keystore/release="'./production.keystore'"@g' -i export_presets.cfg
+            sed 's@keystore/release_user=".*"@keystore/release_user="'$ANDROID_KEYSTORE_USER'"@g' -i export_presets.cfg
+            sed 's@keystore/release_password=".*"@keystore/release_password="'$ANDROID_KEYSTORE_PW'"@g' -i export_presets.cfg
 
-      - name: Prepare Android Keystore
-        env:
-          ANDROID_KEYSTORE: ${{secrets.ANDROID_RELEASE_KEYSTORE}}
-          ANDROID_KEYSTORE_USER: ${{secrets.ANDROID_RELEASE_KEYSTORE_USER}}
-          ANDROID_KEYSTORE_PW: ${{secrets.ANDROID_RELEASE_KEYSTORE_PW}}
-        if: |
-          env.ANDROID_KEYSTORE &&
-          env.ANDROID_KEYSTORE_USER &&
-          env.ANDROID_KEYSTORE_PW
-        run: |
-          echo $ANDROID_KEYSTORE | base64 --decode > ./production.keystore
-          sed 's@keystore/release=".*"@keystore/release="'./production.keystore'"@g' -i export_presets.cfg
-          sed 's@keystore/release_user=".*"@keystore/release_user="'$ANDROID_KEYSTORE_USER'"@g' -i export_presets.cfg
-          sed 's@keystore/release_password=".*"@keystore/release_password="'$ANDROID_KEYSTORE_PW'"@g' -i export_presets.cfg
+        - name: Build Android App Bundle
+          run: |
+            mkdir -v -p ./dist
+            godot --quiet --export "Android" ./dist/FallingSquare.aab
 
-      - name: Build Android App Bundle
-        run: |
-          mkdir -v -p ./dist
-          godot --quiet --export "Android" ./dist/FallingSquare.aab
+        - name: Upload Android App Bundle
+          uses: actions/upload-artifact@v2
+          with:
+            name: release
+            path: |
+              dist/FallingSquare.aab
+    deploy-release:
+      needs: build-release
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v3
 
-      - name: Upload Android App Bundle
-        uses: actions/upload-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: release
-          path: |
-            dist/FallingSquare.aab
- 
+          path: ./dist/
+
+      - name: Prepare Playstore key
+        env:
+          PLAYSTORE_KEY: ${{secrets.PLAYSTORE_KEY}}
+        if: |
+          env.PLAYSTORE_KEY
+        run: |
+          echo $PLAYSTORE_KEY > ./playstore.key.json
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true 
+      - run: bundle exec fastlane android deploy

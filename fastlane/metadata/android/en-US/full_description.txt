@@ -1,0 +1,1 @@
+A simple mobile game where the goal it's to touch random square before everything explode. It's 100% made with godot.
