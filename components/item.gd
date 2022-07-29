@@ -23,7 +23,12 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 func _on_input_event(viewport, event, shape_idx):
-	if (event is InputEventScreenTouch and event.pressed and is_under_zone):
+	if (
+		event is InputEventScreenTouch 
+		and event.pressed 
+		and is_under_zone
+		and !touch_under_zone
+	):
 		touch_under_zone = true;
 		emit_signal("touched_under_zone", self);
 		item_touched();
