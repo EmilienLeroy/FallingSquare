@@ -1,7 +1,7 @@
 
   name: Release
   on:
-    create:
+    push:
       tags:
         - v*
   jobs:
@@ -77,3 +77,16 @@
           ruby-version: '3.0'
           bundler-cache: true 
       - run: bundle exec fastlane android deploy
+
+    release:
+      name: Github Release
+      runs-on: ubuntu-latest
+      needs: [deploy-release]
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v2
+        - run: npm install -g @geut/chan
+        - run: echo "GAME_VERSION=`cat project.godot | grep -oP '(?<=config/version=").*' |  sed 's/.$//'`" >> $GITHUB_ENV
+        - run: chan gh-release ${{ env.GAME_VERSION }}
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
