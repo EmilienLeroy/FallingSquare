@@ -1,0 +1,10 @@
+[0.1.0] - 2022-07-29
+
+Added
+
+- Add android build.  
+- Add `home`, `game`, `result` and `about` view  
+- Add three items:   
+    - `square`  
+    - `heart`   
+    - `bomb`  
