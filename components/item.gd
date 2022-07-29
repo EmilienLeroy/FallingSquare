@@ -9,6 +9,7 @@ var speed_rotation = 0;
 var velocity = Vector2.ZERO;
 var is_under_zone = false;
 var touch_under_zone = false;
+var value setget , get_value;
 
 func _ready():
 	connect("input_event", self, "_on_input_event");
@@ -24,7 +25,7 @@ func _physics_process(delta):
 func _on_input_event(viewport, event, shape_idx):
 	if (event is InputEventScreenTouch and event.pressed and is_under_zone):
 		touch_under_zone = true;
-		emit_signal("touched_under_zone");
+		emit_signal("touched_under_zone", self);
 		item_touched();
 
 func update_color(color):
@@ -33,6 +34,9 @@ func update_color(color):
 
 func set_speed_rotation(speed):
 	speed_rotation = speed;
+
+func get_value():
+	return 0;
 
 func enter_zone():
 	pass;

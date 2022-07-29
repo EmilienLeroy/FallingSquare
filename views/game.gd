@@ -91,8 +91,8 @@ func update_spawn_position():
 	
 	$Spawn.position = Vector2(positionX, positionY);
 
-func on_item_touched():
-	score = score + 1;
+func on_item_touched(item):
+	score = score + item.value;
 	$Score.score = score;
 	
 func on_life_added():
