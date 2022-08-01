@@ -11,6 +11,9 @@ func _ready():
 func get_value():
 	return 1;
 
+func get_combo():
+	return 1;
+
 func item_touched():
 	emit_signal("increase_score");
 	update_color(Color8(51, 255, 84));

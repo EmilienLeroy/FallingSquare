@@ -10,6 +10,7 @@ var velocity = Vector2.ZERO;
 var is_under_zone = false;
 var touch_under_zone = false;
 var value setget , get_value;
+var combo setget , get_combo;
 
 func _ready():
 	connect("input_event", self, "_on_input_event");
@@ -41,6 +42,9 @@ func set_speed_rotation(speed):
 	speed_rotation = speed;
 
 func get_value():
+	return 0;
+
+func get_combo():
 	return 0;
 
 func enter_zone():
