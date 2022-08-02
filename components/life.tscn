@@ -1,14 +1,29 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://components/life.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.156863 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="Life" type="MarginContainer"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -132.0
+margin_top = 4.0
 margin_bottom = 42.0
 script = ExtResource( 2 )
 
+[node name="Panel" type="Panel" parent="."]
+margin_right = 132.0
+margin_bottom = 38.0
+custom_styles/panel = SubResource( 1 )
+
 [node name="Hearts" type="HBoxContainer" parent="."]
 margin_right = 132.0
-margin_bottom = 42.0
+margin_bottom = 38.0
+custom_constants/separation = 0
+alignment = 1

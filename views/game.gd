@@ -10,6 +10,7 @@ var timer = Timer.new();
 var lifes;
 var max_lifes;
 var score = 0;
+var combo = 0;
 var shake_amount = 10;
 var shake = false;
 var size = 1.2;
@@ -69,7 +70,6 @@ func create_item():
 	add_child(item);
 
 func update_spawn_time():
-	
 	if (interval > 0.7):
 		interval = interval - 0.1;
 
@@ -92,9 +92,12 @@ func update_spawn_position():
 	$Spawn.position = Vector2(positionX, positionY);
 
 func on_item_touched(item):
-	score = score + item.value;
-	$Score.score = score;
+	combo = combo + item.combo;
+	score = score + (item.value * combo);
 	
+	$Combo.combo = combo;
+	$Score.score = score;
+
 func on_life_added():
 	if (max_lifes <= lifes):
 		return
@@ -104,7 +107,11 @@ func on_life_added():
 
 func on_life_loose():
 	lifes = lifes - 1;
+	combo = 0;
+	
+	$Combo.combo = combo;
 	$Front/Life.remove_heart();
+	
 	shake_camera();
 	
 	if (lifes == 0):
