@@ -31,6 +31,8 @@ func _process(delta):
 	))
 
 func _ready():
+	randomize();
+	
 	timer.set_wait_time(interval);
 	timer.set_one_shot(false);
 	timer.connect("timeout", self, "create_item");
