@@ -5,6 +5,10 @@ signal lose;
 var Square = preload("res://components/square.tscn");
 var Bomb = preload("res://components/bomb.tscn");
 var Restore = preload("res://components/restore.tscn");
+var Reset = preload("res://components/reset.tscn");
+
+const DEFAULT_SIZE = 1.2;
+const DEFAULT_TIME = 1.5;
 
 var timer = Timer.new();
 var lifes;
@@ -13,8 +17,8 @@ var score = 0;
 var combo = 0;
 var shake_amount = 10;
 var shake = false;
-var size = 1.2;
-var interval = 1.5;
+var size = DEFAULT_SIZE;
+var interval = DEFAULT_TIME;
 
 func _process(delta):
 	if (!shake):
@@ -47,6 +51,9 @@ func get_random_item():
 	
 	if random_float < 0.9:
 		return Bomb;
+		
+	if random_float < 0.95:
+		return Reset;
 
 	return Restore;
 
@@ -65,7 +72,8 @@ func create_item():
 	item.set_speed_rotation(rotation);
 	item.connect("add_life", self, "on_life_added");
 	item.connect("loose_life", self, "on_life_loose");
-	item.connect("touched_under_zone", self, "on_item_touched")
+	item.connect("touched_under_zone", self, "on_item_touched");
+	item.connect("reset_items", self, "on_item_reset");
 	
 	add_child(item);
 
@@ -119,6 +127,10 @@ func on_life_loose():
 		emit_signal("lose", score);
 	
 
+func on_item_reset():
+	size = DEFAULT_SIZE;
+	interval = DEFAULT_TIME;
+	
 func shake_camera():
 	shake = true;
 	
