@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://components/square.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/icons/multiply.png" type="Texture" id=2]
+[ext_resource path="res://components/multiply.gd" type="Script" id=3]
+
+[node name="Item" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )

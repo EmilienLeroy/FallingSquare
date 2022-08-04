@@ -6,6 +6,7 @@ var Square = preload("res://components/square.tscn");
 var Bomb = preload("res://components/bomb.tscn");
 var Restore = preload("res://components/restore.tscn");
 var Reset = preload("res://components/reset.tscn");
+var Multiply = preload("res://components/multiply.tscn");
 
 const DEFAULT_SIZE = 1.2;
 const DEFAULT_TIME = 1.5;
@@ -46,11 +47,14 @@ func set_life(life):
 func get_random_item():
 	var random_float = randf();
 
-	if random_float < 0.8:
+	if random_float < 0.75:
 		return Square;
 	
-	if random_float < 0.9:
+	if random_float < 0.85:
 		return Bomb;
+	
+	if random_float < 0.9:
+		return Multiply;
 		
 	if random_float < 0.95:
 		return Reset;
