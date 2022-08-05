@@ -11,6 +11,7 @@ var is_under_zone = false;
 var touch_under_zone = false;
 var value setget , get_value;
 var combo setget , get_combo;
+var is_multi setget , get_is_multi;
 
 func _ready():
 	connect("input_event", self, "_on_input_event");
@@ -28,7 +29,7 @@ func _on_input_event(viewport, event, shape_idx):
 		event is InputEventScreenTouch 
 		and event.pressed 
 		and is_under_zone
-		and !touch_under_zone
+		and (!touch_under_zone or get_is_multi())
 	):
 		touch_under_zone = true;
 		emit_signal("touched_under_zone", self);
@@ -46,6 +47,9 @@ func get_value():
 
 func get_combo():
 	return 0;
+	
+func get_is_multi():
+	return false;
 
 func enter_zone():
 	pass;
