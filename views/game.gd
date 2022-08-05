@@ -47,25 +47,34 @@ func set_life(life):
 	max_lifes = life;
 	$Front/Life.update_hearts(life);
 
+# Get randomly an item.
+# The current probability 
+# to get theses items are :
+#  - Restore: 5%
+#  - Multi: 10%
+#  - Bomb: 10%
+#  - Multiply: 5%
+#  - Reset: 2% and life =< 2
+#  - Square: 68%
 func get_random_item():
 	var random_float = randf();
 
-	if random_float < 0.65:
-		return Square;
+	if random_float < 0.05:
+		return Restore;
 	
-	if random_float < 0.75:
+	if random_float < 0.15:
 		return Multi;
 	
-	if random_float < 0.85:
+	if random_float < 0.25:
 		return Bomb;
 	
-	if random_float < 0.9:
+	if random_float < 0.30:
 		return Multiply;
 		
-	if random_float < 0.95:
+	if random_float < 0.32 and lifes <= 2:
 		return Reset;
-
-	return Restore;
+ 
+	return Square;
 
 func create_item():
 	var rotation = rand_range(-1, 1);
