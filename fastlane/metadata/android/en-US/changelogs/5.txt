@@ -1,0 +1,18 @@
+[0.2.0] - 2022-08-06
+
+Added
+
+- Add `Multi` item with a probability of 10%.
+- Add `Multiply` item with a probability of 5%. 
+- Add `Reset` item with a probability of 2% and when you have under two lifes. 
+- Add combo system. 
+
+Changed
+
+- Update probability of `Square` item to 68%.
+- Update probability of `Bomb` item to 10%.
+- Update probability of `Restore` item to 5%.
+
+Fixed
+
+- Randomize seed of the game on each application start. 
