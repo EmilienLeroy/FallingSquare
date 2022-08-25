@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/textures/restart.png" type="Texture" id=1]
 [ext_resource path="res://assets/textures/home.png" type="Texture" id=2]
 [ext_resource path="res://views/lose.gd" type="Script" id=3]
+[ext_resource path="res://assets/textures/save.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFontData" id=7]
 font_path = "res://assets/fonts/Inter-Medium.ttf"
@@ -23,18 +24,29 @@ font_data = SubResource( 3 )
 script = ExtResource( 3 )
 
 [node name="Restart" type="TextureButton" parent="."]
-margin_left = 112.0
-margin_top = 288.0
-margin_right = 252.0
-margin_bottom = 428.0
+margin_left = 85.0
+margin_top = 432.0
+margin_right = 173.0
+margin_bottom = 520.0
 texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 4
 
 [node name="Home" type="TextureButton" parent="."]
-margin_left = 128.0
-margin_top = 464.0
-margin_right = 233.0
-margin_bottom = 569.0
+margin_left = 188.0
+margin_top = 432.0
+margin_right = 276.0
+margin_bottom = 520.0
 texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+
+[node name="Save" type="TextureButton" parent="."]
+margin_left = 117.0
+margin_top = 292.0
+margin_right = 242.0
+margin_bottom = 413.0
+texture_normal = ExtResource( 4 )
 
 [node name="Title" type="Label" parent="."]
 margin_top = 114.0

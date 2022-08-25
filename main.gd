@@ -4,6 +4,7 @@ var HomeView = preload("res://views/home.tscn");
 var GameView = preload("res://views/game.tscn");
 var LoseView = preload("res://views/lose.tscn");
 var AboutView = preload("res://views/about.tscn");
+var SaveView = preload("res://views/save.tscn");
 
 var current;
 
@@ -40,9 +41,18 @@ func create_lose(score):
 	
 	lose.connect("restart", self, "on_play");
 	lose.connect("home", self, "on_home");
+	lose.connect("save", self, "on_save");
 	lose.score = score;
 	
 	return lose;
+
+func create_save(score):
+	var save = SaveView.instance();
+	
+	save.connect("cancel", self, "on_lose");
+	save.score = score;
+	
+	return save;
 
 func update_current_view(view):
 	$Fade.fade_in();
@@ -66,3 +76,6 @@ func on_play():
 
 func on_lose(score):
 	update_current_view(create_lose(score));
+
+func on_save(score):
+	update_current_view(create_save(score));
