@@ -6,6 +6,7 @@ var score = 0;
 
 func _ready():
 	$Cancel.connect("button_down", self, "_on_cancel");
+	$Value.text = str(score);
 
 func _on_cancel():
 	emit_signal("cancel", score);

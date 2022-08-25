@@ -12,13 +12,13 @@ font_path = "res://assets/fonts/Inter-Medium.ttf"
 size = 45
 font_data = SubResource( 7 )
 
-[sub_resource type="DynamicFontData" id=3]
+[sub_resource type="DynamicFontData" id=8]
 font_path = "res://assets/fonts/Inter-Black.ttf"
 
 [sub_resource type="DynamicFont" id=4]
 size = 60
 outline_color = Color( 0, 0, 0, 1 )
-font_data = SubResource( 3 )
+font_data = SubResource( 8 )
 
 [node name="Lose" type="Node2D"]
 script = ExtResource( 3 )
