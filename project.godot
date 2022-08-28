@@ -16,6 +16,7 @@ boot_splash/image="res://assets/textures/logo.png"
 boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
 config/version="0.2.0"
+config/highscore=""
 
 [display]
 
