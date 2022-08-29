@@ -2,6 +2,8 @@ extends Node2D
 
 signal cancel;
 
+var Rank = preload("res://components/rank.tscn");
+
 var score = 0;
 var highscore_url = ProjectSettings.get_setting("application/config/highscore");
 
@@ -16,7 +18,7 @@ func _ready():
 		# TODO: display an error
 		return;
 	
-	var error = $GET.request(highscore_url);
+	var error = $GET.request(highscore_url + "?limit=4");
 
 	if (error != OK):
 		# TODO: display an error
@@ -33,4 +35,11 @@ func _on_get_scores(result, response_code, headers, body):
 	var json = JSON.parse(body.get_string_from_utf8())
 	var ranks = json.result;
 	
-	# TODO: Display scores
+	if (!ranks):
+		# TODO: display error&&
+		return;
+	
+	for rank in ranks:
+		var rankItem = Rank.instance();
+		rankItem.set_rank(rank);
+		$Scores.add_child(rankItem);

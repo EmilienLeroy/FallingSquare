@@ -67,9 +67,9 @@ max_length = 24
 placeholder_text = "Name"
 
 [node name="Title" type="Label" parent="."]
-margin_top = 114.0
+margin_top = 49.0
 margin_right = 360.0
-margin_bottom = 176.0
+margin_bottom = 111.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 8 )
 text = "SCORE"
@@ -78,13 +78,19 @@ valign = 1
 uppercase = true
 
 [node name="Value" type="Label" parent="."]
-margin_top = 176.0
+margin_top = 92.0
 margin_right = 360.0
-margin_bottom = 225.0
+margin_bottom = 166.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 9 )
 text = "0"
 align = 1
 valign = 1
+
+[node name="Scores" type="VBoxContainer" parent="."]
+margin_left = 32.0
+margin_top = 176.0
+margin_right = 328.0
+margin_bottom = 344.0
 
 [node name="GET" type="HTTPRequest" parent="."]
