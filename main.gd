@@ -50,6 +50,7 @@ func create_save(score):
 	var save = SaveView.instance();
 	
 	save.connect("cancel", self, "on_lose");
+	save.connect("send", self, "on_home");
 	save.score = score;
 	
 	return save;

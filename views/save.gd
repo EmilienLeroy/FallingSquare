@@ -1,6 +1,7 @@
 extends Node2D
 
 signal cancel;
+signal send;
 
 var Rank = preload("res://components/rank.tscn");
 
@@ -25,18 +26,37 @@ func _ready():
 		return;
 
 func _on_send():
-	# TODO: send score to highscore 
+	var name = $Name.text;
+	
+	if (!name):
+		# TODO: display an error
+		return;
+
+	var query = JSON.print({
+		"name": name,
+		"value": score,
+	});
+	
+	var headers = ["Content-Type: application/json"];
+	var err = $POST.request(highscore_url, headers, true, HTTPClient.METHOD_POST, query);
+	var result = yield($POST, "request_completed");
+	var json = JSON.parse(result[3].get_string_from_utf8()).result;
+	
+	if (err or !json):
+		# TODO: display error
+		return;
+
+	emit_signal("send");
 	pass
 
 func _on_cancel():
 	emit_signal("cancel", score);
 	
 func _on_get_scores(result, response_code, headers, body):
-	var json = JSON.parse(body.get_string_from_utf8())
-	var ranks = json.result;
+	var ranks = JSON.parse(body.get_string_from_utf8()).result;
 	
 	if (!ranks):
-		# TODO: display error&&
+		# TODO: display error
 		return;
 	
 	for rank in ranks:
