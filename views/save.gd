@@ -37,17 +37,54 @@ func _on_send():
 		"value": score,
 	});
 	
-	var headers = ["Content-Type: application/json"];
+	var headers = [
+		"Content-Type: application/json",
+		"Cookie: " + read_cookies()
+	];
+	
 	var err = $POST.request(highscore_url, headers, true, HTTPClient.METHOD_POST, query);
 	var result = yield($POST, "request_completed");
 	var json = JSON.parse(result[3].get_string_from_utf8()).result;
+	var cookies = get_cookie_session(result[2]); 
 	
+	if (cookies):
+		save_cookies(cookies);
+
 	if (err or !json):
 		# TODO: display error
 		return;
 
 	emit_signal("send");
 	pass
+
+func get_cookie_session(headers):
+	var session = '';
+	
+	for h in headers:
+		if h.to_lower().begins_with("set-cookie"):
+			session = h.split(":", true, 1)[1].strip_edges();
+			
+	return session;
+
+func save_cookies(c):
+	var file = File.new();
+
+	file.open("user://data.save", File.WRITE);
+	file.store_string(var2str({ "cookies": c }));
+	file.close();
+	
+func read_cookies():
+	var file = File.new()
+	
+	file.open("user://data.save", File.READ);
+	var data = str2var(file.get_as_text());
+	file.close();
+	
+	if (data):
+		return data["cookies"];
+	
+	return ''; 
+
 
 func _on_cancel():
 	emit_signal("cancel", score);
