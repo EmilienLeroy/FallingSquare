@@ -4,6 +4,7 @@ signal cancel;
 signal send;
 
 var Rank = preload("res://components/rank.tscn");
+var Alert = preload("res://components/alert.tscn");
 var Highscore = preload("res://modules/highscore.gd");
 
 var score = 0;
@@ -53,3 +54,8 @@ func add_scores(ranks):
 		var rankItem = Rank.instance();
 		rankItem.set_rank(rank);
 		$Scores.add_child(rankItem);
+
+func create_alert(alert_text, alert_type):
+	var alert = Alert.instance().init(alert_text, alert_type);
+	add_child(alert);
+	return alert;
