@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/Inter-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://components/alert.gd" type="Script" id=2]
@@ -25,19 +25,23 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+
+[sub_resource type="Animation" id=5]
+resource_name = "hide"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.6, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 10, 10 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -68,16 +72,15 @@ tracks/1/keys = {
 "values": [ Vector2( 10, 752 ), Vector2( 10, 730 ) ]
 }
 
-[node name="Alert" type="Panel"]
-modulate = Color( 1, 1, 1, 0 )
+[node name="Alert" type="Panel" groups=["alert"]]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -170.0
-margin_top = -790.0
+margin_top = -70.0
 margin_right = 169.0
-margin_bottom = -733.0
+margin_bottom = -13.0
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
 
@@ -96,4 +99,5 @@ max_lines_visible = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )
+anims/hide = SubResource( 5 )
 anims/show = SubResource( 4 )

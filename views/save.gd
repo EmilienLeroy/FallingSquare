@@ -56,6 +56,8 @@ func add_scores(ranks):
 		$Scores.add_child(rankItem);
 
 func create_alert(alert_text, alert_type):
+	get_tree().call_group("alert", "hide");
+	
 	var alert = Alert.instance().init(alert_text, alert_type);
 	add_child(alert);
 	return alert;

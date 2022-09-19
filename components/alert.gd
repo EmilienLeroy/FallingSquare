@@ -19,7 +19,12 @@ func _ready():
 	$Label.text = text;
 	$AnimationPlayer.play("show");
 	pass
-	
+
+func hide():
+	$AnimationPlayer.play("hide");
+	yield($AnimationPlayer, "animation_finished");
+	queue_free();
+
 func get_alert_color():
 	if (type == 'info'):
 		return Color8(0, 0, 255);
