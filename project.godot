@@ -30,6 +30,11 @@ window/stretch/aspect="keep"
 
 pointing/emulate_touch_from_mouse=true
 
+[locale]
+
+test="fr"
+translations=PoolStringArray( "res://locales/locales.csv", "res://locales/locales.en.translation", "res://locales/locales.fr.translation" )
+
 [physics]
 
 common/enable_pause_aware_picking=true
