@@ -3,3 +3,4 @@ SAVE_ERROR_NAME,Name is missing,Le nom est manquant
 SAVE_ERROR_LOADING,Can't load the leaderboard,Impossible de charger le leaderboard
 SAVE_ERROR_SEND,Can't send your score,Impossible d'envoyer votre score
 SAVE_SUCCESS_SEND,Score send !,Score envoyé !
+RANK_TITLE, Rank, Rang

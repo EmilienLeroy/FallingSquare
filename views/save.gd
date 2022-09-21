@@ -39,7 +39,7 @@ func _on_send():
 		create_alert("SAVE_ERROR_SEND", "error");
 		return;
 	
-	emit_signal("send");
+	emit_signal("send", result.data);
 	pass
 
 func _on_cancel():
