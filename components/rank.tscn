@@ -41,7 +41,6 @@ size_flags_stretch_ratio = 0.35
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 clip_text = true
-percent_visible = 1.5
 
 [node name="Name" type="Label" parent="HBoxContainer"]
 margin_left = 32.0
@@ -54,7 +53,6 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 clip_text = true
 uppercase = true
-percent_visible = -0.047619
 
 [node name="Value" type="Label" parent="HBoxContainer"]
 margin_left = 218.0
