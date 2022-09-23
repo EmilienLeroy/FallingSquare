@@ -4,3 +4,9 @@ SAVE_ERROR_LOADING,Can't load the leaderboard,Impossible de charger le leaderboa
 SAVE_ERROR_SEND,Can't send your score,Impossible d'envoyer votre score
 SAVE_SUCCESS_SEND,Score send !,Score envoyé !
 RANK_TITLE, Rank, Rang
+LEADERBOARD_GLOBAL, Global, Général
+LEADERBOARD_ME, My Scores, Mes scores
+HOME_PLAY, Play, Jouer
+HOME_INFO, Information, Information
+HOME_LEADERBOARD, Leaderboard, Leaderboard
+HOME_OPTIONS, Options, Options

@@ -1,5 +1,7 @@
 extends Node2D
 
+signal back;
+
 var Rank = preload("res://components/rank.tscn");
 var Alert = preload("res://components/alert.tscn");
 var Highscore = preload("res://modules/highscore.gd");
@@ -12,6 +14,7 @@ func _ready():
 	
 	$Buttons/Global.connect("button_down", self, "display_global");
 	$Buttons/Me.connect("button_down", self, "display_me");
+	$Back.connect("button_down", self, "_on_back_down");
 	
 	set_global();
 
@@ -59,3 +62,6 @@ func delete_scores():
 	for n in $Scroll/Scores.get_children():
 		$Scroll/Scores.remove_child(n)
 		n.queue_free()
+
+func _on_back_down():
+	emit_signal("back");
