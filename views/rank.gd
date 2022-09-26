@@ -13,7 +13,7 @@ func _ready():
 	$Restart.connect("button_down", self, "_on_restart");
 
 	$Name.text = data.name;
-	$Value.text = '#' + str(data.rank);
+	$Value.text = '# ' + str(data.rank);
 	pass
 
 func _on_home():
