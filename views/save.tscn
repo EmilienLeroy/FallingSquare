@@ -64,7 +64,7 @@ custom_styles/focus = SubResource( 10 )
 custom_styles/normal = SubResource( 2 )
 align = 1
 max_length = 24
-placeholder_text = "Name"
+placeholder_text = "SAVE_NAME"
 
 [node name="Title" type="Label" parent="."]
 margin_top = 49.0
@@ -72,7 +72,7 @@ margin_right = 360.0
 margin_bottom = 111.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 8 )
-text = "SCORE"
+text = "GLOBAL_SCORE"
 align = 1
 valign = 1
 uppercase = true

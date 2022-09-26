@@ -1,4 +1,5 @@
 ,en,fr
+SAVE_NAME,Name,Nom
 SAVE_ERROR_NAME,Name is missing,Le nom est manquant
 SAVE_ERROR_LOADING,Can't load the leaderboard,Impossible de charger le leaderboard
 SAVE_ERROR_SEND,Can't send your score,Impossible d'envoyer votre score
@@ -10,3 +11,4 @@ HOME_PLAY, Play, Jouer
 HOME_INFO, Information, Information
 HOME_LEADERBOARD, Leaderboard, Leaderboard
 HOME_OPTIONS, Options, Options
+GLOBAL_SCORE,Score,Score
