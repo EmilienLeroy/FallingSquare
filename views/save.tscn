@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://views/save.gd" type="Script" id=1]
-[ext_resource path="res://assets/textures/save.png" type="Texture" id=2]
-[ext_resource path="res://assets/textures/cancel.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/Inter-Medium.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/themes/buttom.tres" type="Theme" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -33,32 +32,28 @@ size = 60
 outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 3 )
 
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.278431, 0.815686, 0.364706, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.909804, 0.341176, 0.341176, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [node name="Save" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Cancel" type="TextureButton" parent="."]
-margin_left = 193.0
-margin_top = 456.0
-margin_right = 297.0
-margin_bottom = 560.0
-texture_normal = ExtResource( 3 )
-expand = true
-stretch_mode = 4
-
-[node name="Send" type="TextureButton" parent="."]
-margin_left = 65.0
-margin_top = 456.0
-margin_right = 169.0
-margin_bottom = 560.0
-texture_normal = ExtResource( 2 )
-expand = true
-stretch_mode = 4
-
 [node name="Name" type="LineEdit" parent="."]
-margin_left = 64.0
-margin_top = 358.0
-margin_right = 296.0
-margin_bottom = 418.0
+margin_left = 40.0
+margin_top = 405.0
+margin_right = 320.0
+margin_bottom = 465.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/focus = SubResource( 10 )
 custom_styles/normal = SubResource( 2 )
@@ -89,10 +84,29 @@ valign = 1
 
 [node name="Scores" type="VBoxContainer" parent="."]
 margin_left = 32.0
-margin_top = 176.0
+margin_top = 191.0
 margin_right = 328.0
-margin_bottom = 344.0
+margin_bottom = 359.0
 
 [node name="GET" type="HTTPRequest" parent="."]
 
 [node name="POST" type="HTTPRequest" parent="."]
+
+[node name="Send" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 508.0
+margin_right = 296.0
+margin_bottom = 564.0
+rect_pivot_offset = Vector2( 208, 28 )
+theme = ExtResource( 5 )
+custom_styles/normal = SubResource( 11 )
+text = "SAVE_CONFIRM"
+
+[node name="Cancel" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 576.0
+margin_right = 296.0
+margin_bottom = 632.0
+theme = ExtResource( 5 )
+custom_styles/normal = SubResource( 12 )
+text = "SAVE_CANCEL"
