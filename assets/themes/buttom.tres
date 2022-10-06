@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=7 format=2]
 
-[ext_resource path="res://assets/fonts/Inter-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/Inter-BlackItalic.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=3]
 size = 20

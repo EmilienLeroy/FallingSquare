@@ -1,12 +1,13 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://views/save.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/Inter-Medium.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/fonts/Inter-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/Inter-MediumItalic.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/themes/buttom.tres" type="Theme" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
-font_data = ExtResource( 4 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="StyleBoxEmpty" id=10]
 
@@ -17,12 +18,9 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="DynamicFontData" id=7]
-font_path = "res://assets/fonts/Inter-Medium.ttf"
-
 [sub_resource type="DynamicFont" id=8]
 size = 45
-font_data = SubResource( 7 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFontData" id=3]
 font_path = "res://assets/fonts/Inter-BlackItalic.ttf"
