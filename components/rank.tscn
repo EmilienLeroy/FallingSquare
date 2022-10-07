@@ -1,15 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/fonts/Inter-MediumItalic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://components/rank.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/Inter-BlackItalic.ttf" type="DynamicFontData" id=4]
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0, 0.458824, 1, 1 )
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -38,7 +31,6 @@ script = ExtResource( 2 )
 [node name="Panel" type="Panel" parent="."]
 margin_right = 312.0
 margin_bottom = 48.0
-custom_styles/panel = SubResource( 4 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 margin_left = 8.0
