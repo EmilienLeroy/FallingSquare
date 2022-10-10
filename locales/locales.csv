@@ -9,6 +9,8 @@ SAVE_SUCCESS_SEND,Score send !,Score envoyé !
 RANK_TITLE,Rank,Rang
 LEADERBOARD_GLOBAL,Global,Général
 LEADERBOARD_ME,My Scores,Mes scores
+LEADERBOARD_TITLE,Leaderboard,Leaderboard
+LEADERBOARD_TOP,TOP 50,TOP 50
 HOME_PLAY,Play,Jouer
 HOME_INFO,Information,Information
 HOME_LEADERBOARD,Leaderboard,Leaderboard
