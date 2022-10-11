@@ -4,7 +4,6 @@ signal cancel;
 signal send;
 
 var Rank = preload("res://components/rank.tscn");
-var Alert = preload("res://components/alert.tscn");
 var Highscore = preload("res://modules/highscore.gd");
 
 var score = 0;
@@ -21,7 +20,7 @@ func _ready():
 	var result = yield(highscore.get_scores(4), 'completed');
 	
 	if (result.err != OK):
-		create_alert("SAVE_ERROR_LOADING", "error");
+		Utils.create_alert("SAVE_ERROR_LOADING", "error");
 		return;
 	
 	add_scores(result.data);
@@ -30,13 +29,13 @@ func _on_send():
 	var name = $Name.text;
 	
 	if (!name):
-		create_alert("SAVE_ERROR_NAME", "error");
+		Utils.create_alert("SAVE_ERROR_NAME", "error");
 		return;
 
 	var result = yield(highscore.post_score(name, score), 'completed');
 	
 	if (result.err != OK or result.data == null):
-		create_alert("SAVE_ERROR_SEND", "error");
+		Utils.create_alert("SAVE_ERROR_SEND", "error");
 		return;
 	
 	emit_signal("send", result.data);
@@ -47,17 +46,10 @@ func _on_cancel():
 	
 func add_scores(ranks):
 	if (!ranks):
-		create_alert("SAVE_ERROR_LOADING", "error");
+		Utils.create_alert("SAVE_ERROR_LOADING", "error");
 		return;
 	
 	for rank in ranks:
 		var rankItem = Rank.instance();
 		rankItem.set_rank(rank);
 		$Scores.add_child(rankItem);
-
-func create_alert(alert_text, alert_type):
-	get_tree().call_group("alert", "hide");
-	
-	var alert = Alert.instance().init(alert_text, alert_type);
-	add_child(alert);
-	return alert;

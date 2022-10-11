@@ -18,6 +18,10 @@ config/icon="res://icon.png"
 config/version="0.2.0"
 config/highscore=""
 
+[autoload]
+
+Utils="*res://components/utils.gd"
+
 [display]
 
 window/size/width=360

@@ -1,4 +1,4 @@
-extends Panel
+extends CanvasLayer
 
 var text = '';
 var type = 'info';
@@ -13,24 +13,29 @@ func _ready():
 	var new_style = StyleBoxFlat.new();
 	
 	new_style.set_bg_color(get_alert_color());
-	new_style.set_corner_radius_all(5);
+	new_style.set_corner_radius_all(15);
 	
-	set('custom_styles/panel', new_style);
-	$Label.text = text;
-	$AnimationPlayer.play("show");
+	$Panel.set('custom_styles/panel', new_style);
+	
+	$Panel.connect("gui_input", self, "_on_input");
+	$Panel/Label.text = text;
+	$Panel/AnimationPlayer.play("show");
 	pass
 
 func hide():
-	$AnimationPlayer.play("hide");
-	yield($AnimationPlayer, "animation_finished");
+	$Panel/AnimationPlayer.play("hide");
+	yield($Panel/AnimationPlayer, "animation_finished");
 	queue_free();
+	
+func _on_input(e):
+	hide();
 
 func get_alert_color():
 	if (type == 'info'):
-		return Color8(0, 0, 255);
+		return Color8(0, 117, 255);
 
 	if (type == 'success'):
-		return Color8(0, 255, 0);
+		return Color8(71, 208, 93);
 	
 	if (type == 'error'):
-		return Color8(255, 0, 0);
+		return Color8(232, 87, 87);
