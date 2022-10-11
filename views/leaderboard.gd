@@ -22,7 +22,7 @@ func set_global():
 	var result = yield(highscore.get_scores(50), 'completed');
 	
 	if (result.err != OK):
-		# TODO: alert
+		Utils.create_alert("SAVE_ERROR_LOADING", "error");
 		return;
 	
 	add_scores(result.data);
@@ -32,7 +32,7 @@ func set_me():
 	var result = yield(highscore.get_my_scores(50), 'completed');
 	
 	if (result.err != OK):
-		# TODO: alert
+		Utils.create_alert("SAVE_ERROR_LOADING", "error");
 		return;
 	
 	add_scores(result.data);
@@ -40,7 +40,7 @@ func set_me():
 
 func add_scores(ranks):
 	if (!ranks):
-		# TODO: alert
+		Utils.create_alert("SAVE_ERROR_LOADING", "error");
 		return;
 	
 	for rank in ranks:

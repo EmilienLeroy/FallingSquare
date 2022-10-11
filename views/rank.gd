@@ -14,6 +14,8 @@ func _ready():
 
 	$Name.text = data.name;
 	$Value.text = '# ' + str(data.rank);
+	
+	Utils.create_alert("SAVE_SUCCESS_SEND", "success");
 	pass
 
 func _on_home():
