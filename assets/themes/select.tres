@@ -1,12 +1,6 @@
-[gd_scene load_steps=17 format=2]
+[gd_resource type="Theme" load_steps=13 format=2]
 
 [ext_resource path="res://assets/fonts/Inter-BlackItalic.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://views/options.gd" type="Script" id=2]
-[ext_resource path="res://assets/icons/back.png" type="Texture" id=3]
-
-[sub_resource type="DynamicFont" id=1]
-size = 35
-font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 20
@@ -74,7 +68,7 @@ corner_radius_bottom_left = 15
 expand_margin_top = 11.0
 shadow_color = Color( 0, 0, 0, 0 )
 
-[sub_resource type="Theme" id=3]
+[resource]
 OptionButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
 OptionButton/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 OptionButton/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
@@ -94,31 +88,3 @@ PopupMenu/icons/radio_checked = SubResource( 12 )
 PopupMenu/icons/radio_unchecked = SubResource( 13 )
 PopupMenu/styles/hover = SubResource( 10 )
 PopupMenu/styles/panel = SubResource( 9 )
-
-[node name="Options" type="Node2D"]
-script = ExtResource( 2 )
-
-[node name="Label" type="Label" parent="."]
-margin_top = 22.0
-margin_right = 360.0
-margin_bottom = 140.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Options"
-align = 1
-valign = 1
-
-[node name="Languages" type="OptionButton" parent="."]
-margin_left = 40.0
-margin_top = 154.0
-margin_right = 320.0
-margin_bottom = 203.0
-theme = SubResource( 3 )
-align = 1
-
-[node name="Back" type="TextureButton" parent="."]
-margin_left = 136.0
-margin_top = 686.0
-margin_right = 226.0
-margin_bottom = 776.0
-texture_normal = ExtResource( 3 )
