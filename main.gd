@@ -6,6 +6,7 @@ var LoseView = preload("res://views/lose.tscn");
 var AboutView = preload("res://views/about.tscn");
 var SaveView = preload("res://views/save.tscn");
 var RankView = preload("res://views/rank.tscn");
+var OptionsView = preload("res://views/options.tscn");
 var LeaderboardView = preload("res://views/leaderboard.tscn");
 
 var current;
@@ -20,6 +21,7 @@ func create_home():
 	
 	home.connect("play", self, 'on_play');
 	home.connect("info", self, 'on_info');
+	home.connect("options", self, 'on_options');
 	home.connect("leaderboard", self, 'on_leaderboard');
 	
 	return home;
@@ -74,6 +76,13 @@ func create_leaderboard():
 	
 	return leaderboard;
 
+func create_options():
+	var options = OptionsView.instance();
+	
+	options.connect("back", self, "on_home");
+	
+	return options;
+
 func update_current_view(view):
 	$Fade.fade_in();
 	yield($Fade/Animation, "animation_finished");
@@ -93,6 +102,9 @@ func on_info():
 
 func on_play():
 	update_current_view(create_game());
+	
+func on_options():
+	update_current_view(create_options());
 
 func on_lose(score):
 	update_current_view(create_lose(score));
