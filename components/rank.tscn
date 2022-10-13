@@ -26,11 +26,13 @@ margin_top = -400.0
 margin_right = 156.0
 margin_bottom = -352.0
 rect_min_size = Vector2( 0, 48 )
+mouse_filter = 2
 script = ExtResource( 2 )
 
 [node name="Panel" type="Panel" parent="."]
 margin_right = 312.0
 margin_bottom = 48.0
+mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 margin_left = 8.0
