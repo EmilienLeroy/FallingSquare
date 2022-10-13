@@ -27,7 +27,7 @@ func _on_lang_selected(id):
 	if (!langs[id]):
 		return;
 
-	TranslationServer.set_locale(langs[id]);
+	Settings.set_locale(langs[id]);
 
 func _on_back_down():
 	emit_signal("back");

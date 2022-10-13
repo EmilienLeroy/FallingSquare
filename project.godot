@@ -21,6 +21,7 @@ config/highscore=""
 [autoload]
 
 Utils="*res://components/utils.gd"
+Settings="*res://components/settings.gd"
 
 [display]
 
