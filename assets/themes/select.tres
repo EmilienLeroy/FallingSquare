@@ -1,0 +1,90 @@
+[gd_resource type="Theme" load_steps=13 format=2]
+
+[ext_resource path="res://assets/fonts/Inter-BlackItalic.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=8]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0.458824, 1, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0.458824, 1, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0.458824, 1, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0.458824, 1, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0.458824, 1, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 1 )
+
+[sub_resource type="GradientTexture" id=12]
+width = 1
+
+[sub_resource type="GradientTexture" id=13]
+width = 1
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0, 0.458824, 1, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id=9]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 0, 0.458824, 1, 1 )
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_top = 11.0
+shadow_color = Color( 0, 0, 0, 0 )
+
+[resource]
+OptionButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+OptionButton/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+OptionButton/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+OptionButton/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+OptionButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+OptionButton/fonts/font = SubResource( 8 )
+OptionButton/icons/arrow = null
+OptionButton/styles/disabled = SubResource( 4 )
+OptionButton/styles/focus = SubResource( 5 )
+OptionButton/styles/hover = SubResource( 6 )
+OptionButton/styles/normal = SubResource( 2 )
+OptionButton/styles/pressed = SubResource( 7 )
+PopupMenu/constants/hseparation = 0
+PopupMenu/constants/vseparation = 20
+PopupMenu/fonts/font = SubResource( 11 )
+PopupMenu/icons/radio_checked = SubResource( 12 )
+PopupMenu/icons/radio_unchecked = SubResource( 13 )
+PopupMenu/styles/hover = SubResource( 10 )
+PopupMenu/styles/panel = SubResource( 9 )

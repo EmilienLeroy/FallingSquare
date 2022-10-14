@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://views/save.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/Inter-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/Inter-MediumItalic.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/themes/buttom.tres" type="Theme" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0.458824, 1, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="DynamicFont" id=8]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://assets/fonts/Inter-BlackItalic.ttf"
+
+[sub_resource type="DynamicFont" id=9]
+size = 60
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.278431, 0.815686, 0.364706, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.909804, 0.341176, 0.341176, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Save" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Name" type="LineEdit" parent="."]
+margin_left = 40.0
+margin_top = 422.0
+margin_right = 320.0
+margin_bottom = 482.0
+custom_fonts/font = SubResource( 1 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/normal = SubResource( 2 )
+align = 1
+max_length = 24
+placeholder_text = "SAVE_NAME"
+
+[node name="Title" type="Label" parent="."]
+margin_top = 49.0
+margin_right = 360.0
+margin_bottom = 111.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "GLOBAL_SCORE"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Value" type="Label" parent="."]
+margin_top = 98.0
+margin_right = 360.0
+margin_bottom = 172.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Scores" type="VBoxContainer" parent="."]
+margin_left = 16.0
+margin_top = 191.0
+margin_right = 344.0
+margin_bottom = 408.0
+
+[node name="GET" type="HTTPRequest" parent="."]
+
+[node name="POST" type="HTTPRequest" parent="."]
+
+[node name="Send" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 508.0
+margin_right = 296.0
+margin_bottom = 564.0
+rect_pivot_offset = Vector2( 208, 28 )
+theme = ExtResource( 5 )
+custom_styles/normal = SubResource( 11 )
+text = "SAVE_CONFIRM"
+
+[node name="Cancel" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 576.0
+margin_right = 296.0
+margin_bottom = 632.0
+theme = ExtResource( 5 )
+custom_styles/normal = SubResource( 12 )
+text = "SAVE_CANCEL"

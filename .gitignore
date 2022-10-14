@@ -13,3 +13,4 @@ dist/
 android/
 !fastlane/metadata/android/
 playstore.key.json
+override.cfg

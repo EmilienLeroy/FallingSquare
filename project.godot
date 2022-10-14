@@ -16,6 +16,12 @@ boot_splash/image="res://assets/textures/logo.png"
 boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
 config/version="0.2.0"
+config/highscore=""
+
+[autoload]
+
+Utils="*res://components/utils.gd"
+Settings="*res://components/settings.gd"
 
 [display]
 
@@ -28,6 +34,11 @@ window/stretch/aspect="keep"
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[locale]
+
+test="fr"
+translations=PoolStringArray( "res://locales/locales.csv", "res://locales/locales.en.translation", "res://locales/locales.fr.translation" )
 
 [physics]
 

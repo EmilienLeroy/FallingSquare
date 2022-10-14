@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/fonts/Inter-MediumItalic.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://components/rank.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/Inter-BlackItalic.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 4 )
+
+[node name="Rank" type="MarginContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.0
+margin_top = -400.0
+margin_right = 156.0
+margin_bottom = -352.0
+rect_min_size = Vector2( 0, 48 )
+mouse_filter = 2
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 312.0
+margin_bottom = 48.0
+mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+margin_left = 8.0
+margin_right = 304.0
+margin_bottom = 48.0
+custom_constants/separation = 0
+
+[node name="Rank" type="Label" parent="Panel/HBoxContainer"]
+margin_top = 11.0
+margin_right = 45.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 45, 0 )
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+align = 1
+clip_text = true
+
+[node name="Name" type="Label" parent="Panel/HBoxContainer"]
+margin_left = 45.0
+margin_top = 11.0
+margin_right = 276.0
+margin_bottom = 36.0
+size_flags_horizontal = 15
+size_flags_stretch_ratio = 2.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+clip_text = true
+uppercase = true
+
+[node name="Value" type="Label" parent="Panel/HBoxContainer"]
+margin_left = 276.0
+margin_top = 11.0
+margin_right = 296.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 20, 0 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+align = 2
