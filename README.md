@@ -25,9 +25,13 @@
 
 ## Roadmap
 
-- [ ] Online score board.
-- [ ] Online multiplayer mode.
-- [ ] Sound Effects.
+This is the current roadmap before the `v1.0.0` will be release :
+
+- [x] Online score board.
+- [ ] Improve visual effects.
+- [ ] Add sound effects.
+- [ ] Add achievements.
+- [ ] Build an iOS version.
 
 ## Download
 
