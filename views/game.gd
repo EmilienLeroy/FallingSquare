@@ -19,6 +19,7 @@ var score = 0;
 var combo = 0;
 var shake_amount = 10;
 var shake = false;
+var already_reset = false;
 var size = DEFAULT_SIZE;
 var interval = DEFAULT_TIME;
 
@@ -56,6 +57,9 @@ func set_life(life):
 #  - Multiply: 5%
 #  - Reset: 2% and life =< 2
 #  - Square: 68%
+#
+# Reset can be used once after it will 
+# never spawn again during the game.
 func get_random_item():
 	var random_float = randf();
 
@@ -71,7 +75,7 @@ func get_random_item():
 	if random_float < 0.30:
 		return Multiply;
 		
-	if random_float < 0.32 and lifes <= 2:
+	if random_float < 0.32 and lifes <= 2 and !already_reset:
 		return Reset;
  
 	return Square;
@@ -149,6 +153,7 @@ func on_life_loose():
 func on_item_reset():
 	size = DEFAULT_SIZE;
 	interval = DEFAULT_TIME;
+	already_reset = true;
 	
 func shake_camera():
 	shake = true;
