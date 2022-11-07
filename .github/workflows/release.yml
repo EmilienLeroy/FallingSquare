@@ -13,6 +13,7 @@
         - uses: actions/checkout@v2
           with:
             lfs: true
+  
         - name: Setup Templates
           run: |
             mkdir -v -p ~/.local/share/godot/templates
@@ -26,6 +27,12 @@
             touch android/build/.gdignore
             chmod +x android/build/gradlew
 
+        - name: Prepare Highscore config 
+          env:
+            HIGHSCORE_URL: ${{secrets.HIGHSCORE_URL}}
+          if: env.HIGHSCORE_URL
+          run: |
+            sed 's@config/highscore=".*"@config/highscore="'$HIGHSCORE_URL'"@g' -i project.godot
 
         - name: Prepare Android Keystore
           env:
@@ -53,6 +60,7 @@
             name: release
             path: |
               dist/FallingSquare.aab
+  
     deploy-release:
       needs: build-release
       runs-on: ubuntu-latest
