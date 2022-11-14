@@ -1,0 +1,10 @@
+[0.3.0] - 2022-10-14
+
+Added
+
+- Add a leaderboard system using HighScore.
+- Add languages translations for english and french.
+
+Changed
+
+- Now `Reset` item can be used only once.
