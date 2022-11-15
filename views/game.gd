@@ -8,6 +8,7 @@ var Restore = preload("res://components/restore.tscn");
 var Reset = preload("res://components/reset.tscn");
 var Multiply = preload("res://components/multiply.tscn");
 var Multi = preload("res://components/multi.tscn");
+var Explosion = preload("res://components/explosion.tscn");
 
 const DEFAULT_SIZE = 1.2;
 const DEFAULT_TIME = 1.5;
@@ -128,6 +129,8 @@ func on_item_touched(item):
 	
 	$Combo.combo = combo;
 	$Score.score = score;
+	
+	explosion(item.position);
 
 func on_life_added():
 	if (max_lifes <= lifes):
@@ -162,3 +165,8 @@ func shake_camera():
 	
 	shake = false;
 	$ShakeCamera.set_offset(Vector2(0, 0))
+
+func explosion(pos):
+	var explosion = Explosion.instance();
+	add_child(explosion);
+	explosion.emit(pos);
