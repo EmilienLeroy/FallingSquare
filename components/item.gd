@@ -41,6 +41,9 @@ func update_color(color):
 
 func set_speed_rotation(speed):
 	speed_rotation = speed;
+	
+func get_touched_color():
+	return Color8(255, 255, 255);
 
 func get_value():
 	return 0;

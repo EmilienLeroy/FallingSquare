@@ -15,3 +15,6 @@ func enter_zone():
 func item_touched():
 	update_color(touch_color);
 	emit_signal("loose_life");
+
+func get_touched_color():
+	return touch_color;

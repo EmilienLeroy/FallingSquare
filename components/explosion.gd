@@ -2,9 +2,10 @@ extends Node2D
 
 
 
-func emit(vector, time = 10):
+func emit(vector, color, time = 5):
 	position = vector;
 	$Particles2D.emitting = true;
+	$Particles2D.process_material.set_color(color);
 
 	yield(create_timer(time), "timeout");
 
