@@ -35,6 +35,9 @@ func _on_input_event(viewport, event, shape_idx):
 		emit_signal("touched_under_zone", self);
 		item_touched();
 
+		if (!get_is_multi()):
+			$Animation.play("touched");
+
 func update_color(color):
 	sprite.material = sprite.material.duplicate()
 	sprite.material.set_shader_param("color", color)
