@@ -130,7 +130,7 @@ func on_item_touched(item):
 	$Combo.combo = combo;
 	$Score.score = score;
 	
-	explosion(item.position, item.get_touched_color());
+	explosion(item.position, item.get_touched_color(), 5);
 
 func on_life_added():
 	if (max_lifes <= lifes):
@@ -166,7 +166,7 @@ func shake_camera():
 	shake = false;
 	$ShakeCamera.set_offset(Vector2(0, 0))
 
-func explosion(pos, color):
+func explosion(pos, color, amount):
 	var explosion = Explosion.instance();
 	add_child(explosion);
-	explosion.emit(pos, color);
+	explosion.emit(pos, color, amount);

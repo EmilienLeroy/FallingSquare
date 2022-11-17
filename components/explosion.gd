@@ -2,8 +2,11 @@ extends Node2D
 
 
 
-func emit(vector, color, time = 5):
-	position = vector;
+func emit(vector, color, amount = 10, time = 5):
+	if (vector):
+		position = vector;
+
+	$Particles2D.amount = amount;
 	$Particles2D.emitting = true;
 	$Particles2D.process_material.set_color(color);
 
