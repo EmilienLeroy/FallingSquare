@@ -1,15 +1,38 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://components/zone.gd" type="Script" id=1]
-[ext_resource path="res://assets/textures/zone.png" type="Texture" id=2]
-[ext_resource path="res://assets/shaders/color.gdshader" type="Shader" id=3]
+[ext_resource path="res://assets/icons/Square.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 180.75, 136 )
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 3 )
-shader_param/color = Color( 0.788235, 0.788235, 0.788235, 1 )
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0.00546448, 0.765027 )
+colors = PoolColorArray( 0.5, 0.5, 0.5, 1, 0.788235, 0.788235, 0.788235, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, -0.0161877, 0, 0, Vector2( 0.657609, 0 ), -2.81323, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+lifetime_randomness = 0.2
+emission_shape = 2
+emission_box_extents = Vector3( 250, 7.24, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, -200, 0 )
+angular_velocity = 10.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_random = 1.0
+scale_curve = SubResource( 4 )
+color = Color( 0.788235, 0.788235, 0.788235, 1 )
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource( 1 )
@@ -19,6 +42,17 @@ position = Vector2( 180.25, 136 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 2 )
-position = Vector2( 180, 136 )
-texture = ExtResource( 2 )
+position = Vector2( 182.218, 161.245 )
+rotation = -1.5708
+scale = Vector2( 0.136099, 524.059 )
+texture = SubResource( 7 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 184, 40 )
+amount = 250
+lifetime = 2.5
+preprocess = 20.0
+speed_scale = 0.6
+randomness = 1.0
+process_material = SubResource( 5 )
+texture = ExtResource( 4 )

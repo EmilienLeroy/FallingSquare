@@ -21,7 +21,7 @@ shader_param/color = Color( 0.788235, 0.788235, 0.788235, 1 )
 [node name="Item" groups=["square"] instance=ExtResource( 2 )]
 script = ExtResource( 3 )
 
-[node name="Sprite" parent="." index="0"]
+[node name="Sprite" parent="." index="1"]
 material = SubResource( 2 )
 texture = ExtResource( 1 )
 
