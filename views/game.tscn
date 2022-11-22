@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://components/life.tscn" type="PackedScene" id=1]
 [ext_resource path="res://components/zone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://views/game.gd" type="Script" id=3]
 [ext_resource path="res://components/score.tscn" type="PackedScene" id=4]
 [ext_resource path="res://components/combo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://components/flash.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 55.5, 622 )
@@ -14,6 +15,8 @@ extents = Vector2( 290.5, 108 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="Flash" parent="." instance=ExtResource( 6 )]
 
 [node name="Combo" parent="." instance=ExtResource( 5 )]
 

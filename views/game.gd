@@ -145,6 +145,7 @@ func on_life_loose():
 	
 	$Combo.combo = combo;
 	$Front/Life.remove_heart();
+	$Flash.flash();
 	
 	shake_camera();
 	
