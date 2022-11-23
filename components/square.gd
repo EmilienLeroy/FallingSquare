@@ -4,9 +4,10 @@ signal increase_score;
 signal loose_life;
 
 onready var notifier = $VisibilityNotifier2D;
+
+var item_name = 'square';
 var touched_color setget , get_touched_color;
  
-
 func _ready():
 	notifier.connect("screen_exited", self, "_on_exit_screen");
 

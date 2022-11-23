@@ -24,6 +24,13 @@ var already_reset = false;
 var size = DEFAULT_SIZE;
 var interval = DEFAULT_TIME;
 
+var stats = {
+	'square': 0,
+	'restore': 0,
+	'bomb': 0,
+	'reset': 0
+};
+
 func _process(delta):
 	if (!shake):
 		return;
@@ -131,6 +138,8 @@ func on_item_touched(item):
 	$Score.score = score;
 	
 	explosion(item.position, item.get_touched_color(), 5);
+	update_stats(item);
+	
 
 func on_life_added():
 	if (max_lifes <= lifes):
@@ -151,7 +160,7 @@ func on_life_loose():
 	
 	if (lifes == 0):
 		yield(get_tree().create_timer(0.3), "timeout")
-		emit_signal("lose", score);
+		emit_signal("lose", score, stats);
 	
 
 func on_item_reset():
@@ -171,3 +180,9 @@ func explosion(pos, color, amount):
 	var explosion = Explosion.instance();
 	add_child(explosion);
 	explosion.emit(pos, color, amount);
+
+func update_stats(item):
+	if (!item.item_name):
+		return;
+	
+	stats[item.item_name] += 1;

@@ -41,13 +41,15 @@ func create_game():
 	
 	return game;
 	
-func create_lose(score):
+func create_lose(score, stats):
 	var lose = LoseView.instance();
 	
 	lose.connect("restart", self, "on_play");
 	lose.connect("home", self, "on_home");
 	lose.connect("save", self, "on_save");
+	
 	lose.score = score;
+	lose.stats = stats;
 	
 	return lose;
 
@@ -106,8 +108,8 @@ func on_play():
 func on_options():
 	update_current_view(create_options());
 
-func on_lose(score):
-	update_current_view(create_lose(score));
+func on_lose(score, stats):
+	update_current_view(create_lose(score, stats));
 
 func on_save(score):
 	update_current_view(create_save(score));

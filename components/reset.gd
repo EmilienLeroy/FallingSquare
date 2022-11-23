@@ -1,6 +1,8 @@
 extends "res://components/item.gd"
 
 signal reset_items;
+
+var item_name = 'reset';
 var default_color = Color8(201, 201, 201);
 var zone_color = Color8(0, 255, 240);
 var touch_color = Color8(255, 255, 255);
