@@ -160,7 +160,7 @@ func on_life_loose():
 	
 	if (lifes == 0):
 		yield(get_tree().create_timer(0.3), "timeout")
-		emit_signal("lose", score, stats);
+		emit_signal("lose", score, stats, true);
 	
 
 func on_item_reset():

@@ -7,6 +7,7 @@ var Rank = preload("res://components/rank.tscn");
 var Highscore = preload("res://modules/highscore.gd");
 
 var score = 0;
+var stats = {};
 var highscore_url = ProjectSettings.get_setting("application/config/highscore");
 var highscore = Highscore.new(highscore_url);
 
@@ -42,7 +43,7 @@ func _on_send():
 	pass
 
 func _on_cancel():
-	emit_signal("cancel", score);
+	emit_signal("cancel", score, stats);
 	
 func add_scores(ranks):
 	if (!ranks):

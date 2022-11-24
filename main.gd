@@ -41,7 +41,7 @@ func create_game():
 	
 	return game;
 	
-func create_lose(score, stats):
+func create_lose(score, stats, save = false):
 	var lose = LoseView.instance();
 	
 	lose.connect("restart", self, "on_play");
@@ -50,15 +50,18 @@ func create_lose(score, stats):
 	
 	lose.score = score;
 	lose.stats = stats;
+	lose.save = save;
 	
 	return lose;
 
-func create_save(score):
+func create_save(score, stats):
 	var save = SaveView.instance();
 	
 	save.connect("cancel", self, "on_lose");
 	save.connect("send", self, "on_rank");
+	
 	save.score = score;
+	save.stats = stats;
 	
 	return save;
 
@@ -108,11 +111,11 @@ func on_play():
 func on_options():
 	update_current_view(create_options());
 
-func on_lose(score, stats):
-	update_current_view(create_lose(score, stats));
+func on_lose(score, stats, save = false):
+	update_current_view(create_lose(score, stats, save));
 
-func on_save(score):
-	update_current_view(create_save(score));
+func on_save(score, stats):
+	update_current_view(create_save(score, stats));
 
 func on_rank(data):
 	update_current_view(create_rank(data));
