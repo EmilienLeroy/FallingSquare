@@ -42,11 +42,13 @@ func save_stats(s):
 		new_stats.bomb = s.bomb + prev.bomb;
 		new_stats.restore = s.restore + prev.restore;
 		new_stats.reset = s.reset + prev.reset;
+		new_stats.game = prev.game + 1;
 	else:
 		new_stats.square = s.square;
 		new_stats.bomb = s.bomb;
 		new_stats.restore = s.restore;
 		new_stats.reset = s.reset;
+		new_stats.game = 1;
 	
 	file.open("user://stats.save", File.WRITE);
 	file.store_string(var2str(new_stats));

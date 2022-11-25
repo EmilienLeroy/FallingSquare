@@ -52,6 +52,17 @@ text = "HOME_INFO"
 
 [node name="Options" type="Button" parent="."]
 margin_left = 88.0
+margin_top = 585.0
+margin_right = 272.0
+margin_bottom = 635.0
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 137, 17 )
+theme = ExtResource( 2 )
+custom_styles/normal = SubResource( 2 )
+text = "HOME_OPTIONS"
+
+[node name="Statistics" type="Button" parent="."]
+margin_left = 88.0
 margin_top = 486.0
 margin_right = 272.0
 margin_bottom = 536.0
@@ -59,7 +70,7 @@ rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 137, 17 )
 theme = ExtResource( 2 )
 custom_styles/normal = SubResource( 2 )
-text = "HOME_OPTIONS"
+text = "HOME_STATISTICS"
 
 [node name="Leaderboard" type="Button" parent="."]
 margin_left = 88.0

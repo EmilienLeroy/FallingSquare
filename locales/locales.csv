@@ -3,18 +3,19 @@ SAVE_NAME,Name,Nom
 SAVE_CONFIRM,Save,Sauvegarder
 SAVE_CANCEL,Cancel,Annuler
 SAVE_ERROR_NAME,Name is missing,Le nom est manquant
-SAVE_ERROR_LOADING,Can't load the leaderboard,Impossible de charger le leaderboard
+SAVE_ERROR_LOADING,Can't load the leaderboard,Impossible de charger le classement
 SAVE_ERROR_SEND,Can't send your score,Impossible d'envoyer votre score
 SAVE_SUCCESS_SEND,Score send !,Score envoyé !
 RANK_TITLE,Rank,Rang
 LEADERBOARD_GLOBAL,Global,Général
 LEADERBOARD_ME,My Scores,Mes scores
-LEADERBOARD_TITLE,Leaderboard,Leaderboard
+LEADERBOARD_TITLE,Leaderboard,Classement
 LEADERBOARD_TOP,TOP 50,TOP 50
 HOME_PLAY,Play,Jouer
 HOME_INFO,Information,Information
-HOME_LEADERBOARD,Leaderboard,Leaderboard
+HOME_LEADERBOARD,Leaderboard,Classement
 HOME_OPTIONS,Options,Options
+HOME_STATISTICS,Statistics,Statistiques
 GLOBAL_SCORE,Score,Score
 LOSE_REPLAY,Replay,Rejouer
-LOSE_HOME,Home,Acceuil
+LOSE_HOME,Home,Accueil
