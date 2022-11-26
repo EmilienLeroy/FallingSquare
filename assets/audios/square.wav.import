@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/square.wav-43d8c45bb23b1265ef9d07a72fc6cddb.sample"
+
+[deps]
+
+source_file="res://assets/audios/square.wav"
+dest_files=[ "res://.import/square.wav-43d8c45bb23b1265ef9d07a72fc6cddb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -93,3 +93,5 @@ shape = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 anims/fade = SubResource( 3 )
 anims/touched = SubResource( 4 )
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]

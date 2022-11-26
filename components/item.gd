@@ -34,6 +34,7 @@ func _on_input_event(viewport, event, shape_idx):
 		touch_under_zone = true;
 		emit_signal("touched_under_zone", self);
 		item_touched();
+		$Audio.play();
 		
 		if (!get_is_multi()):
 			$Explosion.emit(null, get_touched_color());

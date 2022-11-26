@@ -124,6 +124,9 @@ func on_statistics():
 	update_current_view(create_statistics());
 
 func on_lose(score, stats, save = false):
+	if (save):
+		$AudioLose.play();
+	
 	update_current_view(create_lose(score, stats, save));
 
 func on_save(score, stats):
