@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/fonts/Inter-BlackItalic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://views/options.gd" type="Script" id=2]
 [ext_resource path="res://assets/icons/back.png" type="Texture" id=3]
 [ext_resource path="res://assets/themes/select.tres" type="Theme" id=4]
+[ext_resource path="res://assets/themes/checkbox.tres" type="Theme" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -29,6 +30,26 @@ margin_right = 320.0
 margin_bottom = 203.0
 theme = ExtResource( 4 )
 align = 1
+
+[node name="Musics" type="CheckBox" parent="."]
+margin_left = 40.0
+margin_top = 232.0
+margin_right = 314.0
+margin_bottom = 280.0
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "OPTION_MUSICS"
+align = 2
+
+[node name="SFX" type="CheckBox" parent="."]
+margin_left = 40.0
+margin_top = 296.0
+margin_right = 312.0
+margin_bottom = 344.0
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "OPTION_SFX"
+align = 2
 
 [node name="Back" type="TextureButton" parent="."]
 margin_left = 136.0

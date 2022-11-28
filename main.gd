@@ -13,6 +13,11 @@ var StatisticView = preload("res://views/statistics.tscn");
 var current;
 
 func _ready():
+	if (Settings.settings.musics):
+		$Music.play();
+	
+	Settings.connect("settings_updated", self, "_on_settings_updated");
+	
 	current = create_home();
 	add_child(current);
 	pass
@@ -108,6 +113,12 @@ func update_current_view(view):
 	$Fade.fade_out();
 	yield($Fade/Animation, "animation_finished");
 
+func _on_settings_updated(settings):
+	if (settings.musics):
+		return $Music.play();
+	
+	$Music.stop();
+
 func on_home():
 	update_current_view(create_home());
 	
@@ -124,7 +135,7 @@ func on_statistics():
 	update_current_view(create_statistics());
 
 func on_lose(score, stats, save = false):
-	if (save):
+	if (save and Settings.settings.sfx):
 		$AudioLose.play();
 	
 	update_current_view(create_lose(score, stats, save));
