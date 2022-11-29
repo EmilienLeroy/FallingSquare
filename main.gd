@@ -114,6 +114,9 @@ func update_current_view(view):
 	yield($Fade/Animation, "animation_finished");
 
 func _on_settings_updated(settings):
+	if (settings.musics and $Music.playing == true):
+		return;
+		
 	if (settings.musics):
 		return $Music.play();
 	
