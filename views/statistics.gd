@@ -9,6 +9,9 @@ func _ready():
 	
 	if (stats):
 		$Stats.set_stats(stats);
+		
+	if (stats.game):
+		$Games.text = str(stats.game);
 	
 	pass 
 
