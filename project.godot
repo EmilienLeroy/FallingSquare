@@ -15,7 +15,7 @@ run/main_scene="res://main.tscn"
 boot_splash/image="res://assets/textures/logo.png"
 boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
-config/version="0.3.0"
+config/version="0.4.0"
 config/highscore=""
 
 [autoload]

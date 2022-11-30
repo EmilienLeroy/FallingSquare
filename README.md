@@ -28,8 +28,8 @@
 This is the current roadmap before the `v1.0.0` will be release :
 
 - [x] Online score board.
-- [ ] Improve visual effects.
-- [ ] Add sound effects.
+- [x] Improve visual effects.
+- [x] Add sound effects.
 - [ ] Add achievements.
 - [ ] Build an iOS version.
 

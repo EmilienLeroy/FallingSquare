@@ -1,0 +1,8 @@
+[0.4.0] - 2022-11-30
+
+Added
+
+- Add a `statistics` view. 
+- Store the number of items touched and the number of games played.
+- Improve visuals effects. Adding particles on `game` view and animation to each items.
+- Add sounds effects and music. Also add options to disable these.
