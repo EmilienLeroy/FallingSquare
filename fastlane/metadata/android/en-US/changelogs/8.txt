@@ -1,0 +1,5 @@
+[0.4.2] - 2022-12-01
+
+Fixed
+
+- Fix black screen on the `aab` android package. This error was due to a forbidden char used into the music name.
