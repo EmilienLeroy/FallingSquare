@@ -8,7 +8,7 @@
     build-release:
       runs-on: ubuntu-latest
       container:
-        image: barichello/godot-ci:3.4.4
+        image: barichello/godot-ci:3.4.5
       steps:
         - uses: actions/checkout@v2
           with:
@@ -17,13 +17,13 @@
         - name: Setup Templates
           run: |
             mkdir -v -p ~/.local/share/godot/templates
-            mv /root/.local/share/godot/templates/3.4.4.stable ~/.local/share/godot/templates/3.4.4.stable
+            mv /root/.local/share/godot/templates/3.4.5.stable ~/.local/share/godot/templates/3.4.5.stable
             mkdir -v -p ~/.config/godot/
             cp /root/.config/godot/editor_settings-3.tres ~/.config/godot/editor_settings-3.tres
             mkdir -pv android/build
             mkdir -pv android/plugins
-            echo "3.4.4.stable" > android/.build_version
-            unzip ~/.local/share/godot/templates/3.4.4.stable/android_source.zip -d android/build
+            echo "3.4.5.stable" > android/.build_version
+            unzip ~/.local/share/godot/templates/3.4.5.stable/android_source.zip -d android/build
             touch android/build/.gdignore
             chmod +x android/build/gradlew
 
