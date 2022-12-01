@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Odyssey - jiglr.mp3-32a66da9c190bd42f45b5faba8481589.mp3str"
+
+[deps]
+
+source_file="res://assets/audios/Odyssey - jiglr.mp3"
+dest_files=[ "res://.import/Odyssey - jiglr.mp3-32a66da9c190bd42f45b5faba8481589.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
