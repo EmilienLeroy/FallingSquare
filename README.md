@@ -36,12 +36,12 @@ This is the current roadmap before the `v1.0.0` will be release :
 ## Download
 
 <div style="display: flex; align-items: center;">
-  <a style="margin-top: 1px;" href='https://play.google.com/store/apps/details?id=fr.emilienleroy.fallingsquare&hl=fr&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
-    <img width="200" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/>
+  <a href='https://play.google.com/store/apps/details?id=fr.emilienleroy.fallingsquare&hl=fr&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+    <img width="200" alt='Get it on Google Play' src='./.github/playstore.png'/>
   </a>
 
   <a href="https://apps.apple.com/us/app/falling-square-game/id1665452389">
-    <img width="155" alt='Get it on App Store' src='./.github/appstore.svg'/>
+    <img width="179" alt='Get it on App Store' src='./.github/appstore.png'/>
   </a>
 </div>
 
