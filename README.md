@@ -1,6 +1,6 @@
 <div align="center">
   <br/><br/>
-  <img src="./.github/games.gif" width="450" style="border-radius: 20px" />
+  <kbd><img src="./.github/games.gif" width="600" /></kbd>
   <br/><br/>
   
   
