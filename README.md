@@ -1,8 +1,7 @@
 <div align="center">
   <br/><br/>
-  <kbd><img src="./.github/games.gif" width="600" /></kbd>
+  <img src="./fastlane/metadata/android/en-US/images/icon.png" width="215" />
   <br/><br/>
-  
   
   # Falling Square
 
@@ -13,7 +12,9 @@
   A simple mobile game where the goal it's to touch random square before everything explode. It's 100% made with godot and released under MIT license. It's currently available on play store and app store.
 
   <br/>
+  <img src="./.github/games.gif" width="600" />
 </div>
+
 
 
 ## Feature
