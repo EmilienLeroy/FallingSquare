@@ -1,6 +1,6 @@
 <div align="center">
   <br/><br/>
-  <img src="./fastlane/metadata/android/en-US/images/icon.png" width="215" />
+  <img src="./.github/games.gif" width="450" style="border-radius: 20px" />
   <br/><br/>
   
   
